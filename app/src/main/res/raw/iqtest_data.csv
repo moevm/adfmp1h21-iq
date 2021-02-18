@@ -16,7 +16,36 @@ question number,text,image,answer1,answer2,answer3,answer4,answer5,answer6,answe
 18,What number should replace the question mark?,!@0028,3,2,8,4,,,,4,"looking across at the three circles, the number in the middle is the product of the two numbers in the same segment in the other two circles. Thus, 3 ? 2 = 6, 7 ? 3 = 21 and 4 ? 4 = 16;"
 20,How many lines appear below?,!@0029,9,10,11,12,,,,3,
 21,Which is the missing tile?,!@0030,!@0031,!@0032,!@0033,!@0034,!@0035,!@0036,,4,"in each line across and down the arrows point in each of three directions left, right and down. The number of arrows increases 1, 2, 3 in each row"
-25,"able, rot, son, king - Which word below shares a common feature with all the words above?",,line,sit,take,hope,night,,,3,"all words can be prefixed with PAR to form another word � parable, parrot, parson, parking, partake"
+25,"able, rot, son, king - Which word below shares a common feature with all the words above?",,line,sit,take,hope,night,,,3,"all words can be prefixed with PAR to form another word � parable, parrot, parson, parking, partake"
 36,To which hexagon below can a dot be added so that both dots then meet the same conditions as the two dots in the hexagon above?,!@0037,!@0038,!@0039,!@0040,!@0041,!@0042,,,4,so that one dot appears in the triangle and one circle; and the other dot appears in the triangle and three circles
 39,What number should replace the question mark?,!@0043,1,0,3,2,4,,,1,looking at lines of numbers from the top: 9 ? 8 = 72; 72 ? 8 = 576; 576 ? 8 = 4608
 40,Which is the missing section?,!@0044,!@0045,!@0046,!@0047,!@0048,,,,3,each opposite corner block of four squares are identical
+41,What comes next?,!@0049,!@0050,!@0051,!@0052,!@0053,!@0054,,,5,"the number of white dots is increased by one each time, both vertically and horizontally, and all white dots are connected"
+42,Which is the missing section?,!@0055,!@0056,!@0057,!@0058,!@0059,,,,2,"lines across proceed +2, –3, +2,  lines down proceed –3, +2, –3"
+43,What number should replace the question mark?,!@0060,5,10,6,12,9,,,1,(8 + 7) × 5 = 75
+44,Which is the missing section?,!@0061,!@0062,!@0063,!@0064,!@0065,,,,2,"in lines and columns, add the first three numbers to arrive at the fourth number"
+45,"Looking at lines across and down, if the first two tiles are combined to produce the third tile, with the exception that like symbols are cancelled out, which of the above tiles is incorrect, and with which of the tiles below should it be replaced?",!@0066,!@0067,!@0068,!@0069,!@0070,!@0071,,,2,"Tile 7 is incorrect, and should be replaced by tile B"
+46,"Which word in brackets is closest in meaning to the word ""MONITOR""?",,observe,order,meddle,intrude,conclude,,,1,
+47,Which two words are most opposite in meaning?,,"liberty, frivolity","frivolity, chastity","frivolity, sobriety","irrationality, polarity","chastity, polarity",,,3,
+49,"When the above is folded to form a cube, which is the only one of the following that can be produced?",!@0072,!@0073,!@0074,!@0075,!@0076,!@0077,,,4,
+50,Which is the odd one out?,,femur,mandible,fibula,tibia,patella,,,2,
+51,"dopiness, uncloaking, dishwasher. Which word below has a feature in common with all the words above?",,gallant,crossfire,whirlwind,assaul,,,,2,"all words contain an embedded tree – do(pine)ss, uncl(oak)ing, dishw(ash)er, cross(fir)e"
+52,"1, 101, 15, 4, 29, –93, 43, –190, ?. What number should replace the question mark?",,57,60,31,210,72,,,1,"there are two alternate sequences: +14, –97"
+53,Which shield below has most in common with the shield above?,!@0078,!@0079,!@0080,!@0081,!@0082,!@0083,,,4,"it contains a triangle in a circle, a circle in a triangle (with the same orientation of the triangle) and a black dot in a square"
+54,"Which word in brackets is closest in meaning to the word ""FUSE""?",,muzzle,explode,coalesce,immobilize,tighten,,,3,
+55,"1, 50, 6, 45, 11, 40, 16, 35, 21, ?, ?. Which numbers should replace the question marks?",,42.19,13.1,26.14,30.26,,,,4,there are two alternate sequences. Add 5 starting at 1. Subtract 5 starting at 50
+56,Which is the missing section?,!@0084,!@0085,!@0086,!@0087,!@0088,,,,2,"start at the bottom lefthand corner square and work along the bottom row, then back along the next row up etc, repeating the numbers 38219"
+57,"bizarre is to outlandish as eccentric is to: eerie, quirky, esoteric, weird, curious",,eerie,esoteric,weird,quirky,curious,,,4,
+58,Which is the missing tile?,!@0089,!@0090,!@0091,!@0092,!@0093,,,,3,looking across and down the triangles turn through 90°
+59,The cost of an identical three-course lunch for four people was £56.00. The main course cost twice as much as the sweet and the sweet cost twice as much as the starter. How much did the main course cost per person?,,£6.00,£7.00,£8.00,£9.00,,,,3,"starter = 1 unit, sweet = 2 units, main course = 4 units, = 7 units in total. Therefore, cost per unit = £56 ÷ 7 = £8.00. The main course, therefore, cost 4 × 8 = 32 (or £8.00 per person)"
+60,"aplomb, dodge, graph, jerk, ?. What comes next?",,laugh,maroon,link,nicke,midnight,,,2,the letters start and finish with the alphabetic sequence: ABcDEfGHiJKlMN
+61,"100, 97.4, 94.8, ?, 89.6, 87. What number should replace the question mark?",,92.2,92,92.1,93,,,,1,deduct 2.6 at each stage
+62,"Which two words are closest in meaning? qualified, practicable, puissant, feasible, mundane, fine",,"qualified, practicable","puissant, feasible","practicable, feasible","mundane,  puissant","mundane, fine",,,3,
+63,What comes next?,!@0094,!@0095,!@0096,!@0097,!@0098,!@0099,,,2,"the inner hexagon is being dismantled one side at a time working anticlockwise, while the outer hexagon is being constructed one side at a time working clockwise"
+64,"Which word in brackets is most opposite to the word "" SLEEK""? (sordid, unimaginative, disorderly, dishevelled, oblique)",,dishevelled,oblique,unimaginative,sordid,dishevelled,,,1,
+65,What number should replace the question mark?,!@0100,1417,1218,1318,1418,,,,1,"42 ÷ 3 = 14, 51 ÷ 3 = 17"
+66,Which is the odd one out?,,trivet,tributary,triptych,trident,triad,,,2,in the other words the prefix tri- refers to three
+67,What number should replace the question mark?,!@0101,7,12,9,11,,,,1,the numbers round the centre increase by seven (in the others they increase by three and five respectively)
+68,5862 is to 714; and 3498 is to 1113; and 9516 is to 156; therefore 8257 is to ?,,134,102,1012,157,,,,4,"7 + 8 = 15, 2 + 5 = 7"
+69,"abashed, derail, little, ?. What comes next?",,mellow,status,elicit,leader,entail,,,3,the following word begins with the last two letters of the previous word reversed
+70,Which is the missing tile?,!@0102,!@0103,!@0104,!@0105,!@0106,!@0107,,,4,"all lines are continued. However, wavy lines become straight and vice versa"
