@@ -81,28 +81,35 @@ class ResultFragment : Fragment() {
             btnRevise.visibility = Button.VISIBLE
             txtName.visibility = EditText.GONE
             btnRevise.setOnClickListener {
-                viewModel.currentQuestion.value = 0
-                viewModel.loadQuestion()
-                var direction = ResultFragmentDirections.actionResultFragmentToTrainerFragment()
-                    .setMode(2)
-                findNavController().navigate(direction)
+                if (findNavController().currentDestination?.id == R.id.resultFragment) {
+                    viewModel.currentQuestion.value = 0
+                    viewModel.loadQuestion()
+                    var direction = ResultFragmentDirections.actionResultFragmentToTrainerFragment()
+                        .setMode(2)
+                    findNavController().navigate(direction)
+                }
             }
         }
         val callback = requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            if(args.showReviseBtn==0) {
-                saveResult(context)
+            if (findNavController().currentDestination?.id == R.id.resultFragment) {
+
+                if (args.showReviseBtn == 0) {
+                    saveResult(context)
+                }
+                val direction =
+                    ResultFragmentDirections.actionResultFragmentToNavigationHome()
+                findNavController().navigate(direction)
             }
-            val direction =
-                ResultFragmentDirections.actionResultFragmentToNavigationHome()
-            findNavController().navigate(direction)
         }
         root.findViewById<Button>(R.id.btnBackToMenu).setOnClickListener {
-            if(args.showReviseBtn==0) {
-                saveResult(context)
+            if (findNavController().currentDestination?.id == R.id.resultFragment) {
+                if (args.showReviseBtn == 0) {
+                    saveResult(context)
+                }
+                val direction =
+                    ResultFragmentDirections.actionResultFragmentToNavigationHome()
+                findNavController().navigate(direction)
             }
-            val direction =
-                ResultFragmentDirections.actionResultFragmentToNavigationHome()
-            findNavController().navigate(direction)
         }
         return root
     }

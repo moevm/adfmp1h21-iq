@@ -77,10 +77,13 @@ class TrainerFragment : Fragment() {
 
                 override fun onFinish() {
                     TimeoutDialogFragment("Time over!") {
-                        val action =
-                            TrainerFragmentDirections.actionTrainerFragmentToResultFragment()
-                                .setShowReviseBtn(0)
-                        findNavController().navigate(action)
+                        if (findNavController().currentDestination?.id == R.id.trainerFragment) {
+
+                            val action =
+                                TrainerFragmentDirections.actionTrainerFragmentToResultFragment()
+                                    .setShowReviseBtn(0)
+                            findNavController().navigate(action)
+                        }
                     }
                 }
             }
@@ -113,7 +116,7 @@ class TrainerFragment : Fragment() {
             val adapter =
                 AnswersAdapterGV(args.mode, context, it, this@TrainerFragment::adapterOnClick)
             gvAnswers.adapter = adapter
-            setDynamicHeight(gvAnswers,2)
+            setDynamicHeight(gvAnswers, 2)
         })
 
         root.findViewById<Button>(R.id.btnNextQuestion).setOnClickListener {
@@ -128,9 +131,12 @@ class TrainerFragment : Fragment() {
                 ExitDialogFragment(
                     "Are you sure you want to exit? Your progress will be loss.",
                     {
-                        val direction =
-                            TrainerFragmentDirections.actionTrainerFragmentToNavigationHome()
-                        findNavController().navigate(direction)
+                        if (findNavController().currentDestination?.id == R.id.trainerFragment) {
+
+                            val direction =
+                                TrainerFragmentDirections.actionTrainerFragmentToNavigationHome()
+                            findNavController().navigate(direction)
+                        }
                     },
                     {}).show(parentFragmentManager, "exit")
             } else {
@@ -150,7 +156,8 @@ class TrainerFragment : Fragment() {
         for (i in 0 until items) {
             val listItem = gridViewAdapter.getView(i, null, gridView)
             listItem.measure(0, 0)
-            totalHeight = if (listItem.measuredHeight>totalHeight) listItem.measuredHeight else totalHeight
+            totalHeight =
+                if (listItem.measuredHeight > totalHeight) listItem.measuredHeight else totalHeight
         }
         var x = 1f
         if (items > col) {
@@ -172,23 +179,29 @@ class TrainerFragment : Fragment() {
 //                TODO: confirmation to end test/training
             if (args.mode == 0) {
                 ExitDialogFragment("Finish?", {
-                    val action =
-                        TrainerFragmentDirections.actionTrainerFragmentToResultFragment()
-                            .setShowReviseBtn(1)
-                    findNavController().navigate(action)
+                    if (findNavController().currentDestination?.id == R.id.trainerFragment) {
+                        val action =
+                            TrainerFragmentDirections.actionTrainerFragmentToResultFragment()
+                                .setShowReviseBtn(1)
+                        findNavController().navigate(action)
+                    }
                 }, {}).show(parentFragmentManager, "exit")
             } else if (args.mode == 1) {
                 ExitDialogFragment(
                     "Are you sure you want to finish the test? There is time remaining",
                     {
-                        val action =
-                            TrainerFragmentDirections.actionTrainerFragmentToResultFragment()
-                                .setShowReviseBtn(0)
-                        findNavController().navigate(action)
+                        if (findNavController().currentDestination?.id == R.id.trainerFragment) {
+                            val action =
+                                TrainerFragmentDirections.actionTrainerFragmentToResultFragment()
+                                    .setShowReviseBtn(0)
+                            findNavController().navigate(action)
+                        }
                     },
                     {}).show(parentFragmentManager, "exit")
             } else if (args.mode == 2) {
-                findNavController().popBackStack()
+                if (findNavController().currentDestination?.id == R.id.trainerFragment) {
+                    findNavController().popBackStack()
+                }
             }
         }
     }

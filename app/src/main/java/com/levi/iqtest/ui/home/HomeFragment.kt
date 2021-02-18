@@ -17,13 +17,13 @@ import com.levi.iqtest.R
 
 class HomeFragment : Fragment() {
 
-//    private val homeViewModel: HomeViewModel by viewModels()
+    //    private val homeViewModel: HomeViewModel by viewModels()
     private val homeViewModel: HomeViewModel by activityViewModels()
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
 
 //        homeViewModel =
@@ -36,20 +36,30 @@ class HomeFragment : Fragment() {
 //        })
 
         root.findViewById<Button>(R.id.btnToTraining).setOnClickListener {
-            val action = HomeFragmentDirections.actionNavigationHomeToTrainerFragment().setMode(0)
-            findNavController().navigate(action)
+            if (findNavController().currentDestination?.id == R.id.navigation_home) {
+                val action =
+                    HomeFragmentDirections.actionNavigationHomeToTrainerFragment().setMode(0)
+                findNavController().navigate(action)
+            }
         }
         root.findViewById<Button>(R.id.btnToTesting).setOnClickListener {
-            val action = HomeFragmentDirections.actionNavigationHomeToTrainerFragment().setMode(1)
-            findNavController().navigate(action)
+            if (findNavController().currentDestination?.id == R.id.navigation_home) {
+                val action =
+                    HomeFragmentDirections.actionNavigationHomeToTrainerFragment().setMode(1)
+                findNavController().navigate(action)
+            }
         }
         root.findViewById<Button>(R.id.btnToAbout).setOnClickListener {
-            val action = HomeFragmentDirections.actionNavigationHomeToAboutFragment()
-            findNavController().navigate(action)
+            if (findNavController().currentDestination?.id == R.id.navigation_home) {
+                val action = HomeFragmentDirections.actionNavigationHomeToAboutFragment()
+                findNavController().navigate(action)
+            }
         }
         root.findViewById<Button>(R.id.btnLeaderboard).setOnClickListener {
-            val action = HomeFragmentDirections.actionNavigationHomeToLeaderboardFragment()
-            findNavController().navigate(action)
+            if (findNavController().currentDestination?.id == R.id.navigation_home) {
+                val action = HomeFragmentDirections.actionNavigationHomeToLeaderboardFragment()
+                findNavController().navigate(action)
+            }
         }
         return root
     }
