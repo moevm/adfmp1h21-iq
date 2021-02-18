@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.trainer.TrainerFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:paddingLeft="25dp"
+        android:paddingTop="20dp"
+        android:paddingRight="25dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtQuestionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Question Text"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:visibility="gone" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <ImageView
+                android:id="@+id/imgQuestionImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/iqtest_0000" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/txtExplanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <GridView
+                android:id="@+id/gvAnswers"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="16dp"
+        android:layout_weight="0"
+        android:gravity="fill_horizontal|center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnPrevQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Previous" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/txtQuestionNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1"
+            android:textSize="30sp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/txtTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="1:00"
+            android:textSize="30sp" />
+
+        <Space
+            android:id="@+id/spaceTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnNextQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Next" />
+
+    </LinearLayout>
+
+</LinearLayout>

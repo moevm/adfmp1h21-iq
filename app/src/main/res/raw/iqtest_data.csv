@@ -1,0 +1,22 @@
+question number,text,image,answer1,answer2,answer3,answer4,answer5,answer6,answer7,correct,explanation
+1,"Which piece below, when fitted into the piece on the left, will form a perfect square?",!@0000,!@0001,!@0002,!@0003,!@0004,!@0005,,,2,
+2,Which word in brackets is most opposite to the word in capitals? PROSCRIBE,,allow,stifle,promote,verify,indict,,,1,
+3,"0, 1, 2, 4, 6, 9, 12, 16, ? - What number should replace the question mark?",,22,20,18,32,50,,,2,"add 1, 1, 2, 2, 3, 3, 4, 4"
+4,Which number is the odd one out?,,9678,4572,5261,5133,3527,6895,7768,5,"in the others the sum of the first two numbers is equal to the sum of the second two numbers, for example 5 + 2 = 6 + 1"
+5,Isotherm is to temperature as isobar is to: ,,atmosphere,wind,pressure,latitude,current,,,3,
+6,Which is the missing section?,!@0006,!@0007,!@0008,!@0009,!@0010,,,,4,"lines across proceed +1, +2, +3. Lines down proceed +3, +2, +1"
+7,Which is the odd one out?,!@0011,!@0012,!@0013,!@0014,!@0015,,,,3,in all the others the black circle is connected to three white circles. In C it is only connected to two white circles
+10,Which is the odd one out?,!@0016,!@0017,!@0018,!@0019,!@0020,,,,2,the rest are the same figure rotated
+11,"How many minutes is it before 12 noon, if 48 minutes ago it was twice as many minutes past 9 am?",,40,44,20,25,,,,2,"12 noon less 44 minutes = 11.16, 11.16 less 48 minutes = 10.28, 9 am plus 88 minutes (44 ? 2) = 10.28"
+13,Which is the odd one out?,,heptagon,triangle,hexagon,cube,pentagon,,,4,it is a three-dimensional figure. The rest are all two-dimensional figures
+14,"Switch A turns lights 1 and 2 on/off or off/on. Switch B turns lights 2 and 4 on/off or off/on. Switch C turns lights 1 and 3 on/off or off/on. Switches C, A and B are thrown in turn with the result that Figure 1 turns into Figure 2. Which switch does not work at all? (white=ON)",!@0021,Switch A,Switch B,Switch C,,,,,1,
+15,Which is the missing tile?,!@0022,!@0023,!@0024,!@0025,!@0026,!@0027,,,2,"in each line and column, each of the three rings is shaded black once"
+16,Which word in brackets is closest in meaning to the word in capitals? BRUNT,,dull,edifice,impact,tawny,nonsense,,,3,
+17,Which of the following is not an anagram of a type of food?,,PAST EIGHT,I CAN ROAM,WIN BOAR,CAN PEAK,COOL CHEAT,,,3,"WIN BOAR = rainbow. The foods are spaghetti (PAST EIGHT), macaroni (I CAN ROAM), pancake (CAN PEAK) and chocolate (COOL CHEAT);"
+18,What number should replace the question mark?,!@0028,3,2,8,4,,,,4,"looking across at the three circles, the number in the middle is the product of the two numbers in the same segment in the other two circles. Thus, 3 ? 2 = 6, 7 ? 3 = 21 and 4 ? 4 = 16;"
+20,How many lines appear below?,!@0029,9,10,11,12,,,,3,
+21,Which is the missing tile?,!@0030,!@0031,!@0032,!@0033,!@0034,!@0035,!@0036,,4,"in each line across and down the arrows point in each of three directions left, right and down. The number of arrows increases 1, 2, 3 in each row"
+25,"able, rot, son, king - Which word below shares a common feature with all the words above?",,line,sit,take,hope,night,,,3,"all words can be prefixed with PAR to form another word – parable, parrot, parson, parking, partake"
+36,To which hexagon below can a dot be added so that both dots then meet the same conditions as the two dots in the hexagon above?,!@0037,!@0038,!@0039,!@0040,!@0041,!@0042,,,4,so that one dot appears in the triangle and one circle; and the other dot appears in the triangle and three circles
+39,What number should replace the question mark?,!@0043,1,0,3,2,4,,,1,looking at lines of numbers from the top: 9 ? 8 = 72; 72 ? 8 = 576; 576 ? 8 = 4608
+40,Which is the missing section?,!@0044,!@0045,!@0046,!@0047,!@0048,,,,3,each opposite corner block of four squares are identical

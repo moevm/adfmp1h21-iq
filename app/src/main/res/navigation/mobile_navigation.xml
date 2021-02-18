@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.levi.iqtest.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_trainerFragment"
+            app:destination="@id/navigation_trainer">
+            <argument
+                android:name="mode"
+                android:defaultValue="0" />
+        </action>
+        <action
+            android:id="@+id/action_navigation_home_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.levi.iqtest.ui.about.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <navigation
+        android:id="@+id/navigation_trainer"
+        app:startDestination="@id/trainerFragment">
+        <fragment
+            android:id="@+id/resultFragment"
+            android:name="com.levi.iqtest.ui.result.ResultFragment"
+            android:label="fragment_result"
+            tools:layout="@layout/fragment_result" >
+            <action
+                android:id="@+id/action_resultFragment_to_navigation_home"
+                app:destination="@id/navigation_home"
+                app:popUpTo="@id/navigation_home"
+                app:popUpToInclusive="true" />
+            <argument
+                android:name="showReviseBtn"
+                app:argType="integer"
+                android:defaultValue="0" />
+            <action
+                android:id="@+id/action_resultFragment_to_trainerFragment"
+                app:destination="@id/trainerFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/trainerFragment"
+            android:name="com.levi.iqtest.ui.trainer.TrainerFragment"
+            android:label="fragment_trainer"
+            tools:layout="@layout/fragment_trainer">
+            <action
+                android:id="@+id/action_trainerFragment_to_resultFragment"
+                app:destination="@id/resultFragment"
+                >
+                <argument
+                    android:name="showReviseBtn"
+                    android:defaultValue="0" />
+            </action>
+            <argument
+                android:name="mode"
+                app:argType="integer"
+                android:defaultValue="0" />
+            <action
+                android:id="@+id/action_trainerFragment_to_navigation_home"
+                app:destination="@id/navigation_home"
+                app:popUpTo="@id/navigation_home"
+                app:popUpToInclusive="true" />
+        </fragment>
+        <argument
+            android:name="mode"
+            android:defaultValue="0" />
+    </navigation>
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="com.levi.iqtest.LeaderboardFragment"
+        android:label="fragment_leaderboard"
+        tools:layout="@layout/fragment_leaderboard" />
+
+</navigation>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="resultModel"
+            type="com.levi.iqtest.ui.result.ResultViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.result.ResultFragment">
+
+        <!-- TODO: Update blank fragment layout -->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:gravity="center|center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your result"
+                android:textSize="36sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/txtResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00"
+                android:textSize="60sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <EditText
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Noname"
+                android:textAlignment="center" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="48dp" />
+
+            <Button
+                android:id="@+id/btnTestDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Test detail" />
+
+            <Button
+                android:id="@+id/btnBackToMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back to menu" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
