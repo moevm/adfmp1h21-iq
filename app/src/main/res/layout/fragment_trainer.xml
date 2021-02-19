@@ -23,6 +23,15 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/txtTimer"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="1:00"
+                android:textSize="18sp" />
+
+            <TextView
                 android:id="@+id/txtQuestionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -38,17 +47,17 @@
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp" />
+                android:layout_height="9dp" />
 
             <ImageView
                 android:id="@+id/imgQuestionImage"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="239dp"
                 android:src="@drawable/iqtest_0000" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="30dp" />
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/txtExplanation"
@@ -59,7 +68,7 @@
             <GridView
                 android:id="@+id/gvAnswers"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="324dp"
                 android:nestedScrollingEnabled="false"
                 android:overScrollMode="never" />
 
@@ -90,24 +99,17 @@
 
         <TextView
             android:id="@+id/txtQuestionNumber"
-            android:layout_width="wrap_content"
+            android:layout_width="95dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:gravity="center"
             android:text="1"
-            android:textSize="30sp" />
+            android:textSize="24sp" />
 
         <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/txtTimer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1:00"
-            android:textSize="30sp" />
 
         <Space
             android:id="@+id/spaceTimer"
