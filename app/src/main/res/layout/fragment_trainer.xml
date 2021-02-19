@@ -23,15 +23,6 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtTimer"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:text="1:00"
-                android:textSize="18sp" />
-
-            <TextView
                 android:id="@+id/txtQuestionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

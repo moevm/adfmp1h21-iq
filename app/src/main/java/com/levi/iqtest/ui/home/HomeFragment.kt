@@ -65,12 +65,16 @@ class HomeFragment : Fragment() {
     }
 
     override fun onResume() {
-        (activity as AppCompatActivity).supportActionBar?.hide()
+        if(activity is AppCompatActivity) {
+            (activity as AppCompatActivity)?.supportActionBar?.hide()
+        }
         super.onResume()
     }
 
     override fun onPause() {
-        (activity as AppCompatActivity).supportActionBar?.show()
+        if(activity is AppCompatActivity) {
+            (activity as AppCompatActivity)?.supportActionBar?.show()
+        }
         super.onPause()
     }
 }

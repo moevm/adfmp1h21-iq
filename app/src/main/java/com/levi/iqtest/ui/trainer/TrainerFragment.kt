@@ -3,9 +3,7 @@ package com.levi.iqtest.ui.trainer
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.*
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
@@ -35,12 +33,10 @@ class TrainerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_trainer, container, false)
-
+        setHasOptionsMenu(true)
         val txtQuestionNumber = root.findViewById<TextView>(R.id.txtQuestionNumber)
         val txtQuestionText = root.findViewById<TextView>(R.id.txtQuestionText)
         val imgQuestionImage = root.findViewById<ImageView>(R.id.imgQuestionImage)
-        val txtTimer = root.findViewById<TextView>(R.id.txtTimer)
-        val spaceTimer = root.findViewById<Space>(R.id.spaceTimer)
         val txtImage = root.findViewById<TextView>(R.id.txtImage)
         val txtExplanation = root.findViewById<TextView>(R.id.txtExplanation)
         val gvAnswers = root.findViewById<GridView>(R.id.gvAnswers)
@@ -63,34 +59,6 @@ class TrainerFragment : Fragment() {
             txtExplanation.visibility = TextView.GONE
         } else if (args.mode == 2) {
             txtExplanation.visibility = TextView.VISIBLE
-        }
-
-        if (args.mode == 1) {
-            txtTimer.visibility = TextView.VISIBLE
-            spaceTimer.visibility = Space.VISIBLE
-            val timer = object : CountDownTimer(120000, 1000) {
-                override fun onTick(millisUntilFinished: Long) {
-                    txtTimer.text =
-                        android.text.format.DateFormat.format("mm:ss", millisUntilFinished)
-                            .toString()
-                }
-
-                override fun onFinish() {
-                    TimeoutDialogFragment("Time over!") {
-                        if (findNavController().currentDestination?.id == R.id.trainerFragment) {
-
-                            val action =
-                                TrainerFragmentDirections.actionTrainerFragmentToResultFragment()
-                                    .setShowReviseBtn(0)
-                            findNavController().navigate(action)
-                        }
-                    }
-                }
-            }
-            timer.start()
-        } else {
-            txtTimer.visibility = TextView.GONE
-            spaceTimer.visibility = Space.GONE
         }
 
         viewModel.currentQuestionImage.observe(viewLifecycleOwner, Observer {
@@ -144,6 +112,34 @@ class TrainerFragment : Fragment() {
             }
         }
         return root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        if(args.mode==1) {
+            inflater.inflate(R.menu.trainer_menu, menu)
+            val txtTimer = menu.findItem(R.id.txtTimer)
+            val timer = object : CountDownTimer(12000, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+                    txtTimer.title =
+                        android.text.format.DateFormat.format("mm:ss", millisUntilFinished)
+                            .toString()
+                }
+
+                override fun onFinish() {
+                    TimeoutDialogFragment("Time over!") {
+                        if (findNavController().currentDestination?.id == R.id.trainerFragment) {
+                            val action =
+                                TrainerFragmentDirections.actionTrainerFragmentToResultFragment()
+                                    .setShowReviseBtn(0)
+                            findNavController().navigate(action)
+                        }
+                    }.show(parentFragmentManager,"timeout")
+                }
+            }
+            timer.start()
+        }else {
+            super.onCreateOptionsMenu(menu, inflater)
+        }
     }
 
     private fun setDynamicHeight(gridView: GridView, col: Int) {
