@@ -29,6 +29,9 @@ class MainActivity : AppCompatActivity() {
         view.findViewById<AppCompatImageButton>(R.id.btnBack).setOnClickListener {
             this.onBackPressed()
         }
+        view.findViewById<AppCompatImageButton>(R.id.btnNextQuestion).setOnClickListener {
+
+        }
     }
 
 

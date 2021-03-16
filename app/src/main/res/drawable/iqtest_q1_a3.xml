@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Largest black circle in back -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#000"/>
+            <size
+                android:width="25dp"
+                android:height="25dp"/>
+        </shape>
+    </item>
+    <!-- Smaller white circle in back -->
+    <item>
+        <shape android:shape="oval">
+            <stroke android:color="@android:color/transparent"
+                android:width="0.7dp"/>
+            <solid android:color="#fff"/>
+            <size
+                android:width="20dp"
+                android:height="20dp"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <stroke android:color="@android:color/transparent"
+                android:width="7.7dp"/>
+            <solid android:color="#000"/>
+            <size
+                android:width="15dp"
+                android:height="15dp"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <stroke android:color="@android:color/transparent"
+                android:width="8.5dp"/>
+            <solid android:color="#fff"/>
+            <size
+                android:width="10dp"
+                android:height="10dp"/>
+        </shape>
+    </item>
+    <!-- Smallest black circle in front -->
+    <item>
+        <shape android:shape="oval">
+            <stroke android:color="@android:color/transparent"
+                android:width="15dp"/>
+            <solid android:color="#000"/>
+            <size
+                android:width="10dp"
+                android:height="10dp"/>
+        </shape>
+    </item>
+</layer-list>

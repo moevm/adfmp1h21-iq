@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:width="0.5dp"
+                android:color="#000" />
+            <size
+                android:width="100dp"
+                android:height="90dp"/>
+        </shape>
+    </item>
+
+    <item
+        android:gravity="left"
+        android:bottom="65dp"
+        android:top="5dp"
+        android:left="5dp"
+        android:drawable="@drawable/iqtest_q1_a4"/>
+
+    <item
+        android:gravity="center"
+        android:bottom="65dp"
+        android:top="5dp"
+        android:drawable="@drawable/iqtest_q1_a3"/>
+
+    <item
+        android:gravity="right"
+        android:bottom="65dp"
+        android:top="5dp"
+        android:right="5dp"
+        android:drawable="@drawable/iqtest_q1_circle1"/>
+
+    <item
+        android:gravity="center"
+        android:left="0dp"
+        android:drawable="@drawable/iqtest_q1_a2"/>
+
+    <item
+        android:gravity="left"
+        android:top="35dp"
+        android:bottom="35dp"
+        android:left="5dp"
+        android:drawable="@drawable/iqtest_q1_circle1"/>
+
+    <item
+        android:gravity="right"
+        android:top="35dp"
+        android:bottom="35dp"
+        android:right="5dp"
+        android:drawable="@drawable/iqtest_q1_circle2"/>
+
+    <item
+        android:gravity="left"
+        android:top="65dp"
+        android:bottom="5dp"
+        android:left="5dp"
+        android:drawable="@drawable/iqtest_q1_a3"/>
+
+    <item
+        android:gravity="center"
+        android:top="65dp"
+        android:bottom="5dp"
+        android:left="0dp"
+        android:drawable="@drawable/iqtest_q1_circle3"/>
+
+<!--    <item-->
+<!--        android:bottom="25dp">-->
+<!--        <shape android:shape="line">-->
+<!--            <stroke android:width="0.5dp"-->
+<!--                android:color="#000" />-->
+<!--        </shape>-->
+<!--    </item>-->
+
+<!--    <item-->
+<!--        android:top="25dp">-->
+<!--        <shape android:shape="line">-->
+<!--            <stroke android:width="0.5dp"-->
+<!--                android:color="#000" />-->
+<!--        </shape>-->
+<!--    </item>-->
+
+</layer-list>

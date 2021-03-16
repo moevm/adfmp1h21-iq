@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:width="0.5dp"
+                android:color="#000" />
+            <size
+                android:width="100dp"
+                android:height="100dp"/>
+        </shape>
+    </item>
+<!--row1-->
+    <item
+        android:gravity="left"
+        android:bottom="90dp"
+        android:top="15dp"
+        android:left="5dp"
+        android:drawable="@drawable/iqtest_q2_arrow2"/>
+    <item
+        android:gravity="center"
+        android:bottom="65dp"
+        android:top="0dp"
+        android:drawable="@drawable/iqtest_q2_arrow3"/>
+    <item
+        android:gravity="right"
+        android:bottom="90dp"
+        android:top="15dp"
+        android:right="5dp"
+        android:drawable="@drawable/iqtest_q2_arrow1"/>
+<!--row2 center-->
+    <item
+        android:gravity="center"
+        android:top="-10dp"
+        android:drawable="@drawable/iqtest_q2_arrow1"/>
+    <item
+        android:gravity="center"
+        android:top="10dp"
+        android:drawable="@drawable/iqtest_q2_arrow1"/>
+<!--row2 left-->
+    <item
+        android:gravity="left"
+        android:top="55dp"
+        android:bottom="57.5dp"
+        android:left="12.5dp"
+        android:drawable="@drawable/iqtest_q2_arrow3"/>
+    <item
+        android:gravity="left"
+        android:top="55dp"
+        android:bottom="57.5dp"
+        android:left="0dp"
+        android:drawable="@drawable/iqtest_q2_arrow3"/>
+
+<!--row2 right-->
+    <item
+        android:gravity="right"
+        android:top="50dp"
+        android:bottom="57.5dp"
+        android:right="5dp"
+        android:drawable="@drawable/iqtest_q2_arrow2"/>
+    <item
+        android:gravity="right"
+        android:top="60dp"
+        android:bottom="50dp"
+        android:right="5dp"
+        android:drawable="@drawable/iqtest_q2_arrow2"/>
+<!--row3 left-->
+    <item
+        android:gravity="left"
+        android:top="77.5dp"
+        android:bottom="30dp"
+        android:left="5dp"
+        android:drawable="@drawable/iqtest_q2_arrow1"/>
+    <item
+        android:gravity="left"
+        android:top="88.5dp"
+        android:bottom="18.5dp"
+        android:left="5dp"
+        android:drawable="@drawable/iqtest_q2_arrow1"/>
+    <item
+        android:gravity="left"
+        android:top="99.5dp"
+        android:bottom="10dp"
+        android:left="5dp"
+        android:drawable="@drawable/iqtest_q2_arrow1"/>
+<!--row2 center-->
+    <item
+        android:gravity="center"
+        android:top="70dp"
+        android:bottom="20dp"
+        android:left="5dp"
+        android:drawable="@drawable/iqtest_q2_arrow2"/>
+    <item
+        android:gravity="center"
+        android:top="80dp"
+        android:bottom="10dp"
+        android:left="5dp"
+        android:drawable="@drawable/iqtest_q2_arrow2"/>
+    <item
+        android:gravity="center"
+        android:top="90dp"
+        android:bottom="0dp"
+        android:left="5dp"
+        android:drawable="@drawable/iqtest_q2_arrow2"/>
+
+
+    <!--    <item-->
+    <!--        android:bottom="25dp">-->
+    <!--        <shape android:shape="line">-->
+    <!--            <stroke android:width="0.5dp"-->
+    <!--                android:color="#000" />-->
+    <!--        </shape>-->
+    <!--    </item>-->
+
+    <!--    <item-->
+    <!--        android:top="25dp">-->
+    <!--        <shape android:shape="line">-->
+    <!--            <stroke android:width="0.5dp"-->
+    <!--                android:color="#000" />-->
+    <!--        </shape>-->
+    <!--    </item>-->
+
+</layer-list>
