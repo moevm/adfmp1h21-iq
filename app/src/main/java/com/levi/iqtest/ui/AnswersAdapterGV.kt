@@ -17,7 +17,7 @@ class AnswersAdapterGV (val mode: Int, val context: Context?, var answers: List<
 
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
         val root = layoutInflater.inflate(R.layout.my_answer_button,null)
-        Log.i("aaaa","aaaa")
+//        Log.i("aaaa","aaaa")
         val layout: LinearLayout = root.findViewById(R.id.layout)
         val textView : TextView = root.findViewById(R.id.txtAnswer)
         val imageView : ImageView = root.findViewById(R.id.imgAnswer)
@@ -37,17 +37,18 @@ class AnswersAdapterGV (val mode: Int, val context: Context?, var answers: List<
             }
         }
         answerId.text = ('A'+p0).toString()
-        val context = root.context
+//        val context = root.context
         textView.visibility = TextView.GONE
         imageView.visibility = ImageView.GONE
-        if(answers[p0].answerImage.isNotEmpty()){
+        if(answers[p0].answerImage!=null){
             imageView.visibility = ImageView.VISIBLE
-            val resId = context?.resources?.getIdentifier("iqtest_"+answers[p0].answerImage,"drawable", context?.packageName)
-            resId?.let {
-                    id -> imageView.setImageResource(id)
-            }
+            imageView.setImageDrawable(answers[p0].answerImage)
+//            val resId = context?.resources?.getIdentifier("iqtest_"+answers[p0].answerImage,"drawable", context?.packageName)
+//            resId?.let {
+//                    id -> imageView.setImageResource(id)
+//            }
         }
-        if(answers[p0].answerText.isNotEmpty()){
+        if(answers[p0].answerText!=""){
             textView.visibility = TextView.VISIBLE
             imageView.setImageDrawable(null)
             textView.text = answers[p0].answerText

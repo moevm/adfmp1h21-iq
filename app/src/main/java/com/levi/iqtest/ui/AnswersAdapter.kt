@@ -37,17 +37,18 @@ class AnswersAdapter (private val onClick: (Int, Answer)->Unit) : ListAdapter<An
             currentAnswerId = id
             currentAnswer = answer
             answerId.text = ('A'+id).toString()
-            val context = itemView.context
+//            val context = itemView.context
             textView.visibility = TextView.GONE
             imageView.visibility = ImageView.GONE
-            if(answer.answerImage.isNotEmpty()){
+            if(answer.answerImage!=null){
                 imageView.visibility = ImageView.VISIBLE
-                val resId = context?.resources?.getIdentifier("iqtest_"+answer.answerImage,"drawable", context?.packageName)
-                resId?.let {
-                        id -> imageView.setImageResource(id)
-                }
+                imageView.setImageDrawable(answer.answerImage)
+//                val resId = context?.resources?.getIdentifier("iqtest_"+answer.answerImage,"drawable", context?.packageName)
+//                resId?.let {
+//                        id -> imageView.setImageResource(id)
+//                }
             }
-            if(answer.answerText.isNotEmpty()){
+            if(answer.answerText!=""){
                 textView.visibility = TextView.VISIBLE
                 imageView.setImageDrawable(null)
                 textView.text = answer.answerText

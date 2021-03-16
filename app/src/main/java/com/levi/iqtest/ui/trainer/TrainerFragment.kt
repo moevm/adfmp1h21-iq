@@ -62,17 +62,18 @@ class TrainerFragment : Fragment() {
         }
 
         viewModel.currentQuestionImage.observe(viewLifecycleOwner, Observer {
-            txtImage.text = it
-            if (it.isNotEmpty()) {
+//            txtImage.text = it
+            if (it!=null) {
                 imgQuestionImage.visibility = ImageView.VISIBLE
-                val resId = context?.resources?.getIdentifier(
-                    "iqtest_" + it.substring(2),
-                    "drawable",
-                    context?.packageName
-                )
-                resId?.let { id ->
-                    imgQuestionImage.setImageResource(id)
-                }
+                imgQuestionImage.setImageDrawable(it)
+//                val resId = context?.resources?.getIdentifier(
+//                    "iqtest_" + it.substring(2),
+//                    "drawable",
+//                    context?.packageName
+//                )
+//                resId?.let { id ->
+//                    imgQuestionImage.setImageResource(id)
+//                }
             } else {
                 imgQuestionImage.visibility = ImageView.GONE
                 imgQuestionImage.setImageDrawable(null)

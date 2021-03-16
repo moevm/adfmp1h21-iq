@@ -1,11 +1,13 @@
 package com.levi.iqtest.ui.trainer
 
 import android.app.Application
-import android.content.Context
+import android.graphics.drawable.Drawable
 import androidx.lifecycle.*
 import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
+import com.levi.iqtest.model.AbstractQuestionFactory
 import com.levi.iqtest.model.Answer
 import com.levi.iqtest.model.Question
+import com.levi.iqtest.model.factorytest.*
 
 const val QUESTION_PER_TEST = 10
 
@@ -17,39 +19,52 @@ class TrainerViewModel(application: Application) : AndroidViewModel(application)
     var answerList: MutableList<Answer?>
     val currentQuestion = MutableLiveData<Int>()
     val currentQuestionText = MutableLiveData<String>()
-    val currentQuestionImage = MutableLiveData<String>()
+    val currentQuestionImage = MutableLiveData<Drawable>()
     val currentAnswers = MutableLiveData<List<Answer>>()
     val currentExplanation = MutableLiveData<String>()
 
-    fun loadQuestionList(): List<Question>{
-        val inputStream = context.resources.openRawResource(
-            context.resources.getIdentifier(
-                "iqtest_data",
-                "raw",
-                context.packageName
-            )
-        )
-        return csvReader().readAllWithHeader(inputStream).map { row ->
-            Question(row["text"]!!,
-                row["image"]!!,
-                listOfNotNull(
-                    row["answer1"],
-                    row["answer2"],
-                    row["answer3"],
-                    row["answer4"],
-                    row["answer5"],
-                    row["answer6"],
-                    row["answer7"]
-                ).filter { value -> value.isNotBlank() }
-                    .mapIndexed { index, value ->
-                        Answer(
-                            value,
-                            index + 1 == row["correct"]?.toInt()
-                        )
-                    }.shuffled(),
-                row["explanation"]!!
-            )
+    fun loadQuestionList(): MutableList<Question>{
+        var listFactory : List<AbstractQuestionFactory> = listOf(
+                FactoryQA1(),
+                FactoryQA2(),
+                FactoryQA3(),
+                FactoryQA4(),
+                FactoryQA5()
+                )
+        var listQuestion : MutableList<Question> = mutableListOf()
+        for(i in 0 until 15){
+            val rand = (0..listFactory.size).random()
+            listQuestion.add(listFactory.get(rand).generateQuestion())
         }
+        return listQuestion
+//        val inputStream = context.resources.openRawResource(
+//            context.resources.getIdentifier(
+//                "iqtest_data",
+//                "raw",
+//                context.packageName
+//            )
+//        )
+//        return csvReader().readAllWithHeader(inputStream).map { row ->
+//            Question(row["text"]!!,
+//                row["image"]!!,
+//                listOfNotNull(
+//                    row["answer1"],
+//                    row["answer2"],
+//                    row["answer3"],
+//                    row["answer4"],
+//                    row["answer5"],
+//                    row["answer6"],
+//                    row["answer7"]
+//                ).filter { value -> value.isNotBlank() }
+//                    .mapIndexed { index, value ->
+//                        Answer(
+//                            value,
+//                            index + 1 == row["correct"]?.toInt()
+//                        )
+//                    }.shuffled(),
+//                row["explanation"]!!
+//            )
+//        }
     }
     init {
 //      create a sublist of question
