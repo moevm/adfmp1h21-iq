@@ -1,9 +1,6 @@
 package com.levi.iqtest.model.drquestion
 
-import android.graphics.Canvas
-import android.graphics.ColorFilter
-import android.graphics.Paint
-import android.graphics.PixelFormat
+import android.graphics.*
 import android.graphics.drawable.Drawable
 import java.util.*
 
@@ -19,7 +16,6 @@ class DrawQuestion1(var color1: Paint, var color2: Paint) : Drawable() {
         paintStroke.setStrokeWidth(3f)
 
         paintText.setTextAlign(Paint.Align.CENTER)
-        paintText.setTextSize(50f)
 
         for(i in 0 until 3) {
             coeff_rand[0][i] = num_rand[i] % 2
@@ -29,8 +25,10 @@ class DrawQuestion1(var color1: Paint, var color2: Paint) : Drawable() {
     }
 
     override fun draw(canvas: Canvas) {
-        val SIZE: Float = bounds.width().toFloat() / 3f
+        val SIZE: Float = Math.min(bounds.width(), bounds.height()).toFloat() / 3f
         val radius: Float = (SIZE-20) / 2f
+
+        paintText.setTextSize(SIZE/3)
 
         for (i in 0 until 3) {
             for (j in 0 until 3) {
@@ -41,7 +39,7 @@ class DrawQuestion1(var color1: Paint, var color2: Paint) : Drawable() {
                 }
                 else{
                     if(j==2){
-                        canvas.drawText("?", (i * SIZE + SIZE / 2).toFloat(), (j * SIZE + SIZE / 2 + 20f).toFloat(), paintText)
+                        canvas.drawText("?", (i * SIZE + SIZE/2).toFloat(), (j * SIZE + 2*SIZE/3).toFloat(), paintText)
                     }
                     else{
                         color1 = pcolor(coeff_rand[i-2][j])

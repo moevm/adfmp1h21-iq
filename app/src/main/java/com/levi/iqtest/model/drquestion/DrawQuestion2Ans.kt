@@ -15,16 +15,16 @@ class DrawQuestion2Ans(val res: IntArray) : Drawable()  {
         paintStroke.setStrokeWidth(3f)
 
         paintText.setTextAlign(Paint.Align.CENTER)
-        paintText.setTextSize(30f)
     }
     override fun draw(canvas: Canvas) {
-        val SIZE: Float = bounds.width().toFloat() / 5
+        val SIZE: Float = Math.min(bounds.width(), bounds.height()).toFloat() / 3f
+        paintText.setTextSize(SIZE/3)
 
         for (i in 0 until res.size) {
             for (j in 0 until res.size) {
                 if(i==j) {
                     canvas.drawRect(i * SIZE, j * SIZE, (i + 1) * SIZE, (j + 1) * SIZE, paintStroke)
-                    canvas.drawText(res[i].toString(), (i * SIZE + SIZE / 2).toFloat(), (j * SIZE + SIZE / 2).toFloat(), paintText)
+                    canvas.drawText(res[i].toString(), (i * SIZE + SIZE/2).toFloat(), (j * SIZE + 2*SIZE/3).toFloat(), paintText)
                 }
             }
         }

@@ -26,9 +26,9 @@ class FactoryQA2() : AbstractQuestionFactory(){
         val a:Array<IntArray> = createMatrix(n)
         val res:IntArray = IntArray(3)
 
-        for(i in 0 until res.size){
-            res[i] = a[i+1][i+1]
-            a[i+1][i+1] = 0
+        for(i in 1 until res.size+1){
+            res[i-1] = a[i-1][i]
+            a[i-1][i] = 0
         }
 
         val wrong_res1 = IntArray(3) { Random.nextInt(0, 50) }

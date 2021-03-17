@@ -54,7 +54,6 @@ class AnswersAdapter (private val onClick: (Int, Answer)->Unit) : ListAdapter<An
                 textView.text = answer.answerText
             }
         }
-
     }
 
     // Create new views (invoked by the layout manager)

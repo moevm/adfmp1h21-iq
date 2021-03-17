@@ -15,17 +15,18 @@ class DrawQuestion4 (val a:IntArray, val n:Int, val question:Int) : Drawable() {
         paintStroke.setStrokeWidth(3f)
 
         paintText.setTextAlign(Paint.Align.CENTER)
-        paintText.setTextSize(50f)
     }
 
     override fun draw(canvas: Canvas) {
-        val SIZE: Float = bounds.width().toFloat() / n
+        val SIZE: Float = Math.min(bounds.width(), bounds.height()).toFloat() / n
+        paintText.setTextSize(SIZE/3)
+
         for (i in 0 until n) {
             canvas.drawRect(i * SIZE, 0f, (i + 1) * SIZE, SIZE, paintStroke)
             if(i==question)
-                canvas.drawText("?", (i * SIZE + SIZE / 2).toFloat(), (SIZE / 2).toFloat(), paintText)
+                canvas.drawText("?", (i * SIZE + SIZE/2).toFloat(), (2*SIZE/3).toFloat(), paintText)
             else
-                canvas.drawText(Integer.toString(a[i]), (i * SIZE + SIZE / 2).toFloat(), (SIZE / 2).toFloat(), paintText)
+                canvas.drawText(Integer.toString(a[i]), (i * SIZE + SIZE/2).toFloat(), (2*SIZE/3).toFloat(), paintText)
         }
     }
 

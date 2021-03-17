@@ -43,7 +43,7 @@
             <ImageView
                 android:id="@+id/imgQuestionImage"
                 android:layout_width="match_parent"
-                android:layout_height="239dp"
+                android:layout_height="300dp"
                 android:src="@drawable/iqtest_0000" />
 
             <Space

@@ -11,10 +11,10 @@ class FactoryQA4(): AbstractQuestionFactory() {
         var question: Question
         var answer:List<Answer> = emptyList()
         val n:Int = (5..8).random()
-        val pos_question:Int = (0..n).random()
+        val pos_question:Int = (0..(n-1)).random()
 
         val x:Int = (10..30).random()
-        val a = IntArray(n+1) {100 + x*it}
+        val a = IntArray(n) {100 + x*it}
 
         answer.plus(Answer(a[pos_question].toString(), null, isCorrect = true))
         answer.plus(Answer((a[pos_question] + (0..10).random()).toString(),null, isCorrect = false))

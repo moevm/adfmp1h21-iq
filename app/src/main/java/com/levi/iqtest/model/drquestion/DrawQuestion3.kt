@@ -14,21 +14,20 @@ class DrawQuestion3(val a:Array<IntArray>, val n:Int) : Drawable() {
         paintStroke.setStyle(Paint.Style.STROKE)
         paintStroke.setStrokeWidth(3f)
 
-        val paintText = Paint(Paint.ANTI_ALIAS_FLAG)
         paintText.setTextAlign(Paint.Align.CENTER)
-        paintText.setTextSize(50f)
     }
 
     override fun draw(canvas: Canvas) {
-        val SIZE: Float = bounds.width().toFloat() / n
+        val SIZE: Float = Math.min(bounds.width(), bounds.height()).toFloat() / n
+        paintText.setTextSize(SIZE/3)
 
         for (i in 0 until n) {
             for (j in 0 until n) {
                 canvas.drawRect(i * SIZE, j * SIZE, (i + 1) * SIZE, (j + 1) * SIZE, paintStroke)
                 if(a[i][j] == 0)
-                    canvas.drawText("?", (i * SIZE + SIZE / 2).toFloat(), (j * SIZE + SIZE / 2).toFloat(), paintText)
+                    canvas.drawText("?", (i * SIZE + SIZE/2).toFloat(), (j * SIZE + 2*SIZE/3).toFloat(), paintText)
                 else
-                    canvas.drawText(Integer.toString(a[i][j]), (i * SIZE + SIZE / 2).toFloat(), (j * SIZE + SIZE / 2).toFloat(), paintText)
+                    canvas.drawText(Integer.toString(a[i][j]), (i * SIZE + SIZE/2-10).toFloat(), (j * SIZE + 2*SIZE/3).toFloat(), paintText)
             }
         }
     }

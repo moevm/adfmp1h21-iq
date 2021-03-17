@@ -15,8 +15,8 @@ class DrawQuestion1Ans(val color1: Paint, val color2: Paint) : Drawable()  {
     }
     override fun draw(canvas: Canvas) {
 
-        val SIZE: Float = bounds.width().toFloat() / 3f
-        val radius: Float = (SIZE-20) / 2f
+        val SIZE: Float = Math.min(bounds.width(), bounds.height()).toFloat() / 3f
+        val radius: Float = (SIZE-SIZE/6) / 2f
 
         canvas.drawCircle(SIZE/2.toFloat(), SIZE/2.toFloat(), radius, color1)
         canvas.drawCircle(SIZE/2.toFloat(), SIZE/2.toFloat(), radius, paintStroke)

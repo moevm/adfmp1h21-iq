@@ -9,7 +9,7 @@ class FactoryQA5() : AbstractQuestionFactory(){
     override fun generateQuestion(): Question {
         var question: Question
         var answer:List<Answer> = emptyList()
-        val n:Int = (5..15).random()
+        val n:Int = (5..12).random()
 
 //        var corect_ans:Answer = Answer(n.toString(), isCorrect = true)
 //        var wrong_ans1:Answer = Answer((n+1).toString(), isCorrect = false)
