@@ -1,5 +1,6 @@
 package com.levi.iqtest.model.factorytest
 
+import android.util.Log
 import com.levi.iqtest.model.AbstractQuestionFactory
 import com.levi.iqtest.model.Answer
 import com.levi.iqtest.model.Question
@@ -13,7 +14,7 @@ class FactoryQA4(): AbstractQuestionFactory() {
         val pos_question:Int = (0..n).random()
 
         val x:Int = (10..30).random()
-        val a = IntArray(n) {100 + x*it}
+        val a = IntArray(n+1) {100 + x*it}
 
         answer.plus(Answer(a[pos_question].toString(), null, isCorrect = true))
         answer.plus(Answer((a[pos_question] + (0..10).random()).toString(),null, isCorrect = false))

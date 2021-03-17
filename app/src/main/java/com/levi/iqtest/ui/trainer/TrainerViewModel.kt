@@ -33,7 +33,7 @@ class TrainerViewModel(application: Application) : AndroidViewModel(application)
                 )
         var listQuestion : MutableList<Question> = mutableListOf()
         for(i in 0 until 15){
-            val rand = (0..listFactory.size).random()
+            val rand = (0..listFactory.size-1).random()
             listQuestion.add(listFactory.get(rand).generateQuestion())
         }
         return listQuestion
