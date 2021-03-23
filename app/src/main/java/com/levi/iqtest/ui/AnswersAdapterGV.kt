@@ -38,10 +38,14 @@ class AnswersAdapterGV (val mode: Int, val context: Context?, var answers: List<
         }
         answerId.text = ('A'+p0).toString()
 //        val context = root.context
-        textView.visibility = TextView.GONE
-        imageView.visibility = ImageView.GONE
+//        textView.visibility = TextView.GONE
+//        imageView.visibility = ImageView.GONE
+        if(answers[p0].answerImage==null){
+            Log.i("Debug", "answerImage: null")
+        }
         if(answers[p0].answerImage!=null){
             imageView.visibility = ImageView.VISIBLE
+            textView.text = ""
             imageView.setImageDrawable(answers[p0].answerImage)
 //            val resId = context?.resources?.getIdentifier("iqtest_"+answers[p0].answerImage,"drawable", context?.packageName)
 //            resId?.let {

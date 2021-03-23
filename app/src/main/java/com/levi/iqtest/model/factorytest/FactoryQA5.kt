@@ -16,10 +16,10 @@ class FactoryQA5() : AbstractQuestionFactory(){
 //        var wrong_ans2:Answer = Answer((n-1).toString(), isCorrect = false)
 //        var wrong_ans3:Answer = Answer((n+2).toString(), isCorrect = false)
 
-        answer.plus(Answer(n.toString(), null, isCorrect = true))
-        answer.plus(Answer((n+1).toString(), null, isCorrect = false))
-        answer.plus(Answer((n-1).toString(), null, isCorrect = false))
-        answer.plus(Answer((n+2).toString(), null, isCorrect = false))
+        answer = answer.plus(Answer(n.toString(), null, isCorrect = true))
+        answer = answer.plus(Answer((n+1).toString(), null, isCorrect = false))
+        answer = answer.plus(Answer((n-1).toString(), null, isCorrect = false))
+        answer = answer.plus(Answer((n+2).toString(), null, isCorrect = false))
 
         question = Question("",  DrawQuestion5(n), answer,"")
         return question

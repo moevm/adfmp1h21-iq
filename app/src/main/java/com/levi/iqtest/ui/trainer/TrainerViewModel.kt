@@ -2,6 +2,7 @@ package com.levi.iqtest.ui.trainer
 
 import android.app.Application
 import android.graphics.drawable.Drawable
+import android.util.Log
 import androidx.lifecycle.*
 import com.github.doyaaaaaken.kotlincsv.dsl.csvReader
 import com.levi.iqtest.model.AbstractQuestionFactory
@@ -86,6 +87,9 @@ class TrainerViewModel(application: Application) : AndroidViewModel(application)
             currentQuestionText.value = questionList[it ].text
             currentQuestionImage.value = questionList[it ].image
             currentExplanation.value = questionList[it].explanation
+            if(currentAnswers.value == null){
+                Log.i("Debug", "answerImage: null")
+            }
         }
     }
 

@@ -22,12 +22,12 @@ class FactoryQA1() : AbstractQuestionFactory() {
         val ans_wrong_rand:MutableList<Int> = mutableListOf(0,1,2,3)
         ans_wrong_rand.remove(coeff_ans)
 
-        answer.plus(Answer("", DrawQuestion1Ans(color1, color2), isCorrect = true))
+        answer = answer.plus(Answer("", DrawQuestion1Ans(color1, color2), isCorrect = true))
         for(i in ans_wrong_rand.indices){
             val c2 = ans_wrong_rand[i] % 2
             val c1 = (ans_wrong_rand[i]  /2) %2
 
-            answer.plus(Answer("", DrawQuestion1Ans(pcolor(c1), pcolor(c2)), isCorrect = false))
+            answer = answer.plus(Answer("", DrawQuestion1Ans(pcolor(c1), pcolor(c2)), isCorrect = false))
         }
 
         question = Question("",  dr, answer,"")

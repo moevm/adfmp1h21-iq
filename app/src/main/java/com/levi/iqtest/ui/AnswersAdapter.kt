@@ -40,8 +40,12 @@ class AnswersAdapter (private val onClick: (Int, Answer)->Unit) : ListAdapter<An
 //            val context = itemView.context
             textView.visibility = TextView.GONE
             imageView.visibility = ImageView.GONE
+            if(answer.answerImage==null){
+                Log.i("Debug", "answerImage: null")
+            }
             if(answer.answerImage!=null){
                 imageView.visibility = ImageView.VISIBLE
+                textView.text = ""
                 imageView.setImageDrawable(answer.answerImage)
 //                val resId = context?.resources?.getIdentifier("iqtest_"+answer.answerImage,"drawable", context?.packageName)
 //                resId?.let {

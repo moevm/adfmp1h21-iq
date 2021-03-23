@@ -47,10 +47,10 @@ class FactoryQA3() : AbstractQuestionFactory() {
 //        var dr = DrawQuestion3(a, n)
 //        var corect_ans = DrawQuestion3Ans(res)
 
-        answer.plus(Answer("", DrawQuestion3Ans(res), isCorrect = true))
-        answer.plus(Answer("", DrawQuestion3Ans(wrong_res1), isCorrect = false))
-        answer.plus(Answer("", DrawQuestion3Ans(wrong_res2), isCorrect = false))
-        answer.plus(Answer("", DrawQuestion3Ans(wrong_res3), isCorrect = false))
+        answer = answer.plus(Answer("", DrawQuestion3Ans(res), isCorrect = true))
+        answer = answer.plus(Answer("", DrawQuestion3Ans(wrong_res1), isCorrect = false))
+        answer = answer.plus(Answer("", DrawQuestion3Ans(wrong_res2), isCorrect = false))
+        answer = answer.plus(Answer("", DrawQuestion3Ans(wrong_res3), isCorrect = false))
 
         question = Question("",  DrawQuestion3(a, n), answer,"")
 

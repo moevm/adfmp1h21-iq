@@ -16,10 +16,10 @@ class FactoryQA4(): AbstractQuestionFactory() {
         val x:Int = (10..30).random()
         val a = IntArray(n) {100 + x*it}
 
-        answer.plus(Answer(a[pos_question].toString(), null, isCorrect = true))
-        answer.plus(Answer((a[pos_question] + (0..10).random()).toString(),null, isCorrect = false))
-        answer.plus(Answer((a[n-1] + x + 1).toString(),null, isCorrect = false))
-        answer.plus(Answer((a[pos_question] - 2).toString(),null, isCorrect = false))
+        answer = answer.plus(Answer(a[pos_question].toString(), null, isCorrect = true))
+        answer = answer.plus(Answer((a[pos_question] + (0..10).random()).toString(),null, isCorrect = false))
+        answer = answer.plus(Answer((a[n-1] + x + 1).toString(),null, isCorrect = false))
+        answer = answer.plus(Answer((a[pos_question] - 2).toString(),null, isCorrect = false))
 
         question = Question("", DrawQuestion4(a, n, pos_question),answer,"")
         return question

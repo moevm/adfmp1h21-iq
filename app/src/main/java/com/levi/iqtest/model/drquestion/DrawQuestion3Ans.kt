@@ -7,13 +7,9 @@ import android.graphics.PixelFormat
 import android.graphics.drawable.Drawable
 import android.util.TypedValue
 
-
-
-
 class DrawQuestion3Ans(val res: IntArray) : Drawable() {
     private val paintStroke = Paint(Paint.ANTI_ALIAS_FLAG)
     private val paintText = Paint(Paint.ANTI_ALIAS_FLAG)
-
 
     init{
         paintStroke.setARGB(255, 0, 0, 0)
