@@ -82,6 +82,11 @@
         android:id="@+id/leaderboardFragment"
         android:name="com.levi.iqtest.LeaderboardFragment"
         android:label="fragment_leaderboard"
-        tools:layout="@layout/fragment_leaderboard" />
+        tools:layout="@layout/fragment_leaderboard" >
+        <argument
+            android:name="mode"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 
 </navigation>

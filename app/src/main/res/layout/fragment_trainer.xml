@@ -8,63 +8,56 @@
     android:orientation="vertical"
     tools:context=".ui.trainer.TrainerFragment">
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:fillViewport="true"
-        android:paddingLeft="25dp"
-        android:paddingTop="20dp"
-        android:paddingRight="25dp">
-
-        <LinearLayout
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txtQuestionText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="Question Text"
+            android:textSize="18sp"
+            tools:visibility="gone" />
 
-            <TextView
-                android:id="@+id/txtQuestionText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Question Text"
-                android:textSize="18sp" />
+        <TextView
+            android:id="@+id/txtImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:visibility="gone" />
 
-            <TextView
-                android:id="@+id/txtImage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:visibility="gone" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="2dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="9dp" />
+        <ImageView
+            android:id="@+id/imgQuestionImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/iqtest_0000" />
 
-            <ImageView
-                android:id="@+id/imgQuestionImage"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:src="@drawable/iqtest_0000" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/txtExplanation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
-            <TextView
-                android:id="@+id/txtExplanation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+        <GridView
+            android:id="@+id/gvAnswers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:nestedScrollingEnabled="false"
+            android:overScrollMode="never" />
 
-            <GridView
-                android:id="@+id/gvAnswers"
-                android:layout_width="match_parent"
-                android:layout_height="324dp"
-                android:nestedScrollingEnabled="false"
-                android:overScrollMode="never" />
-
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -90,17 +83,25 @@
 
         <TextView
             android:id="@+id/txtQuestionNumber"
-            android:layout_width="95dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
             android:text="1"
-            android:textSize="24sp" />
+            android:textSize="15sp" />
 
         <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
+        <TextView
+            android:id="@+id/txtTimer"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="1"
+            android:textSize="15sp" />
 
         <Space
             android:id="@+id/spaceTimer"

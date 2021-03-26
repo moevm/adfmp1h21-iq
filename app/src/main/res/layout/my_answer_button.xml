@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:padding="10dp">
 
     <TextView
@@ -17,22 +17,20 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="0"
         android:minHeight="40dp">
 
         <ImageView
             android:id="@+id/imgAnswer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
             app:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
             android:id="@+id/txtAnswer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
             android:text="TextView"
             android:textAlignment="viewStart"
             android:textSize="18sp" />

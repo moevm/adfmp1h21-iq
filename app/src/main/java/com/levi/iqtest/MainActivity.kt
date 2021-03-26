@@ -16,19 +16,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        this.supportActionBar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
-        supportActionBar!!.setDisplayShowCustomEnabled(true)
-        supportActionBar!!.setCustomView(R.layout.custom_action_bar)
-        val view: View = supportActionBar!!.customView
-        val name: TextView = view.findViewById(R.id.name)
-        name.setOnClickListener {
-            Toast.makeText(this@MainActivity, "You have clicked tittle", Toast.LENGTH_LONG)
-                .show()
-        }
-        view.findViewById<AppCompatImageButton>(R.id.btnBack).setOnClickListener {
-            this.onBackPressed()
-        }
+        this.supportActionBar?.hide()
+//        this.supportActionBar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+//        supportActionBar!!.setDisplayShowCustomEnabled(false)
+//        supportActionBar!!.setCustomView(R.layout.custom_action_bar)
+//        val view: View = supportActionBar!!.customView
+//        val name: TextView = view.findViewById(R.id.name)
+//        name.setOnClickListener {
+//            Toast.makeText(this@MainActivity, "You have clicked tittle", Toast.LENGTH_LONG)
+//                .show()
+//        }
+//        view.findViewById<AppCompatImageButton>(R.id.btnBack).setOnClickListener {
+//            this.onBackPressed()
+//        }
 //        view.findViewById<AppCompatImageButton>(R.id.btnNextQuestion).setOnClickListener {
 //
 //        }

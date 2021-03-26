@@ -17,13 +17,14 @@ class TrainerViewModel(application: Application) : AndroidViewModel(application)
     private val context = application.applicationContext
     private var questionsData: List<Question>
     private var questionList: List<Question>
+    var mode: Int = 0
     var answerList: MutableList<Answer?>
     val currentQuestion = MutableLiveData<Int>()
     val currentQuestionText = MutableLiveData<String>()
     val currentQuestionImage = MutableLiveData<Drawable>()
     val currentAnswers = MutableLiveData<List<Answer>>()
     val currentExplanation = MutableLiveData<String>()
-
+    var time: Long = -1
     fun loadQuestionList(): MutableList<Question>{
         var listFactory : List<AbstractQuestionFactory> = listOf(
                 FactoryQA1(),
@@ -87,9 +88,11 @@ class TrainerViewModel(application: Application) : AndroidViewModel(application)
             currentQuestionText.value = questionList[it ].text
             currentQuestionImage.value = questionList[it ].image
             currentExplanation.value = questionList[it].explanation
-            if(currentAnswers.value == null){
-                Log.i("Debug", "answerImage: null")
-            }
+//            currentAnswers.value?.let {
+//                Log.i("Debug", it.size.toString())
+//                Log.i("Debug", it[0].answerText)
+//                Log.i("Debug", it[0].answerImage.toString())
+//            }
         }
     }
 

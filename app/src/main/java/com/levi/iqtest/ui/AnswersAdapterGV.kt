@@ -22,7 +22,6 @@ class AnswersAdapterGV (val mode: Int, val context: Context?, var answers: List<
         val textView : TextView = root.findViewById(R.id.txtAnswer)
         val imageView : ImageView = root.findViewById(R.id.imgAnswer)
         val answerId : TextView = root.findViewById(R.id.txtAnswerId)
-
         layout.setBackgroundResource(0)
         if(answers[p0].isChosen){
             layout.setBackgroundResource(R.drawable.border_green)
@@ -38,21 +37,16 @@ class AnswersAdapterGV (val mode: Int, val context: Context?, var answers: List<
         }
         answerId.text = ('A'+p0).toString()
 //        val context = root.context
-//        textView.visibility = TextView.GONE
-//        imageView.visibility = ImageView.GONE
-        if(answers[p0].answerImage==null){
-            Log.i("Debug", "answerImage: null")
-        }
+        textView.visibility = TextView.GONE
+        imageView.visibility = ImageView.GONE
         if(answers[p0].answerImage!=null){
+            layout.setLayoutParams(LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, (p2!!.height-p2!!.paddingTop-p2!!.paddingBottom)/2))
             imageView.visibility = ImageView.VISIBLE
             textView.text = ""
             imageView.setImageDrawable(answers[p0].answerImage)
-//            val resId = context?.resources?.getIdentifier("iqtest_"+answers[p0].answerImage,"drawable", context?.packageName)
-//            resId?.let {
-//                    id -> imageView.setImageResource(id)
-//            }
         }
         if(answers[p0].answerText!=""){
+            layout.setLayoutParams(LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT))
             textView.visibility = TextView.VISIBLE
             imageView.setImageDrawable(null)
             textView.text = answers[p0].answerText

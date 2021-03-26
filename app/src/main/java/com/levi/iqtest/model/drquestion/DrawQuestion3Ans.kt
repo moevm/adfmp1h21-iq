@@ -45,4 +45,8 @@ class DrawQuestion3Ans(val res: IntArray) : Drawable() {
         // Must be PixelFormat.UNKNOWN, TRANSLUCENT, TRANSPARENT, or OPAQUE
         PixelFormat.OPAQUE
 
+    override fun toString(): String {
+        return "DrawQuestion3Ans(res=${res.contentToString()}, paintStroke=$paintStroke, paintText=$paintText), ${bounds.width()}, ${bounds.height()})"
+    }
+
 }

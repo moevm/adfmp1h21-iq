@@ -48,7 +48,13 @@ class ResultFragment : Fragment() {
         val scoreboard =
             sharedPreferences?.getStringSet("scoreboard", mutableSetOf<String>())?.map { it }
                 ?.toMutableList()
-        scoreboard?.add(scoreboard.size.toString() + "|" + resultModel?.name.value + "|" + viewModel.getScore())
+        scoreboard?.add(
+            (if (viewModel.mode == 0) "train" else "test") + "|"
+                    + scoreboard.size.toString() + "|"
+                    + (if (resultModel?.name.value!=null) resultModel?.name.value else "<anonymous>") + "|"
+                    + viewModel.getScore()+ "|"
+                    + viewModel.time
+        )
         val editor = sharedPreferences?.edit()
         editor?.putStringSet("scoreboard", scoreboard?.toMutableSet())
         editor?.apply()
@@ -93,9 +99,9 @@ class ResultFragment : Fragment() {
         val callback = requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             if (findNavController().currentDestination?.id == R.id.resultFragment) {
 
-                if (args.showReviseBtn == 0) {
-                    saveResult(context)
-                }
+//                if (args.showReviseBtn == 0) {
+                saveResult(context)
+//                }
                 val direction =
                     ResultFragmentDirections.actionResultFragmentToNavigationHome()
                 findNavController().navigate(direction)
@@ -103,9 +109,9 @@ class ResultFragment : Fragment() {
         }
         root.findViewById<Button>(R.id.btnBackToMenu).setOnClickListener {
             if (findNavController().currentDestination?.id == R.id.resultFragment) {
-                if (args.showReviseBtn == 0) {
-                    saveResult(context)
-                }
+//                if (args.showReviseBtn == 0) {
+                saveResult(context)
+//                }
                 val direction =
                     ResultFragmentDirections.actionResultFragmentToNavigationHome()
                 findNavController().navigate(direction)

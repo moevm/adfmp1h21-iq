@@ -20,15 +20,16 @@ class DrawQuestion2(val a:Array<IntArray>, val n:Int) : Drawable() {
 
     override fun draw(canvas: Canvas) {
         val SIZE: Float = Math.min(bounds.width(), bounds.height()).toFloat() / n
+        val offsetLeft = if(bounds.width()<bounds.height()) 0 else (bounds.width()-bounds.height())/2
         paintText.setTextSize(SIZE/3)
 
         for (i in 0 until n) {
             for (j in 0 until n) {
-                canvas.drawRect(i * SIZE, j * SIZE, (i + 1) * SIZE, (j + 1) * SIZE, paintStroke)
+                canvas.drawRect(i * SIZE+offsetLeft, j * SIZE, (i + 1) * SIZE+offsetLeft, (j + 1) * SIZE, paintStroke)
                 if(a[i][j] == 0)
-                    canvas.drawText("?", (i * SIZE + SIZE/2).toFloat(), (j * SIZE + 2*SIZE/3).toFloat(), paintText)
+                    canvas.drawText("?", (i * SIZE + SIZE/2)+offsetLeft.toFloat(), (j * SIZE + 2*SIZE/3).toFloat(), paintText)
                 else
-                    canvas.drawText(Integer.toString(a[i][j]), (i * SIZE + SIZE/2).toFloat(), (j * SIZE + 2*SIZE/3).toFloat(), paintText)
+                    canvas.drawText(Integer.toString(a[i][j]), (i * SIZE + SIZE/2).toFloat()+offsetLeft, (j * SIZE + 2*SIZE/3).toFloat(), paintText)
             }
         }
     }

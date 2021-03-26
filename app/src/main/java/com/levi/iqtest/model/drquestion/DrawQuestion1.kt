@@ -2,6 +2,7 @@ package com.levi.iqtest.model.drquestion
 
 import android.graphics.*
 import android.graphics.drawable.Drawable
+import android.util.Log
 import java.util.*
 
 class DrawQuestion1(var color1: Paint, var color2: Paint) : Drawable() {
@@ -26,29 +27,31 @@ class DrawQuestion1(var color1: Paint, var color2: Paint) : Drawable() {
 
     override fun draw(canvas: Canvas) {
         val SIZE: Float = Math.min(bounds.width(), bounds.height()).toFloat() / 3f
+        val offsetLeft = if(bounds.width()<bounds.height()) 0 else (bounds.width()-bounds.height())/2
         val radius: Float = (SIZE-20) / 2f
+//        Log.i("Debug", toString())
 
         paintText.setTextSize(SIZE/3)
 
         for (i in 0 until 3) {
             for (j in 0 until 3) {
-                canvas.drawRect(i * SIZE, j * SIZE, (i + 1) * SIZE, (j + 1) * SIZE, paintStroke)
+                canvas.drawRect(i * SIZE +offsetLeft, j * SIZE, (i + 1) * SIZE+offsetLeft, (j + 1) * SIZE, paintStroke)
                 if(i!=2){
-                    canvas.drawCircle((i*SIZE + SIZE/2).toFloat(), (j*SIZE + SIZE/2).toFloat(), radius, pcolor(coeff_rand[i][j]))
-                    canvas.drawCircle((i*SIZE + SIZE/2).toFloat(), (j*SIZE + SIZE/2).toFloat(), radius, paintStroke)
+                    canvas.drawCircle((i*SIZE + SIZE/2).toFloat()+offsetLeft, (j*SIZE + SIZE/2).toFloat(), radius, pcolor(coeff_rand[i][j]))
+                    canvas.drawCircle((i*SIZE + SIZE/2).toFloat()+offsetLeft, (j*SIZE + SIZE/2).toFloat(), radius, paintStroke)
                 }
                 else{
                     if(j==2){
-                        canvas.drawText("?", (i * SIZE + SIZE/2).toFloat(), (j * SIZE + 2*SIZE/3).toFloat(), paintText)
+                        canvas.drawText("?", (i * SIZE + SIZE/2).toFloat()+offsetLeft, (j * SIZE + 2*SIZE/3).toFloat(), paintText)
                     }
                     else{
                         color1 = pcolor(coeff_rand[i-2][j])
                         color2 = pcolor(coeff_rand[i-1][j])
 
-                        canvas.drawCircle((i*SIZE + SIZE/2).toFloat(), (j*SIZE + SIZE/2).toFloat(), radius, color1)
-                        canvas.drawCircle((i*SIZE + SIZE/2).toFloat(), (j*SIZE + SIZE/2).toFloat(), radius, paintStroke)
-                        canvas.drawCircle((i*SIZE + SIZE/2).toFloat(), (j*SIZE + SIZE/2).toFloat(), radius/2, color2)
-                        canvas.drawCircle((i*SIZE + SIZE/2).toFloat(), (j*SIZE + SIZE/2).toFloat(), radius/2, paintStroke)
+                        canvas.drawCircle((i*SIZE + SIZE/2).toFloat()+offsetLeft, (j*SIZE + SIZE/2).toFloat(), radius, color1)
+                        canvas.drawCircle((i*SIZE + SIZE/2).toFloat()+offsetLeft, (j*SIZE + SIZE/2).toFloat(), radius, paintStroke)
+                        canvas.drawCircle((i*SIZE + SIZE/2).toFloat()+offsetLeft, (j*SIZE + SIZE/2).toFloat(), radius/2, color2)
+                        canvas.drawCircle((i*SIZE + SIZE/2).toFloat()+offsetLeft, (j*SIZE + SIZE/2).toFloat(), radius/2, paintStroke)
                     }
 
                 }
@@ -78,4 +81,8 @@ class DrawQuestion1(var color1: Paint, var color2: Paint) : Drawable() {
     override fun getOpacity(): Int =
         // Must be PixelFormat.UNKNOWN, TRANSLUCENT, TRANSPARENT, or OPAQUE
         PixelFormat.OPAQUE
+
+    override fun toString(): String {
+        return "DrawQuestion1(color1=$color1, color2=$color2, paintStroke=$paintStroke, paintText=$paintText, coeff_rand=${coeff_rand.contentToString()}, num_rand=$num_rand), ${bounds.width()}, ${bounds.height()})"
+    }
 }

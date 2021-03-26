@@ -15,6 +15,7 @@ import com.levi.iqtest.R
 import com.levi.iqtest.model.Answer
 import com.levi.iqtest.ui.AnswersAdapterGV
 import com.levi.iqtest.ui.dialog.ExitDialogFragment
+import com.levi.iqtest.ui.dialog.PreparationTimeFragment
 import com.levi.iqtest.ui.dialog.TimeoutDialogFragment
 import kotlinx.android.synthetic.main.fragment_trainer.*
 
@@ -27,7 +28,10 @@ class TrainerFragment : Fragment() {
 
     val args: TrainerFragmentArgs by navArgs()
     private val viewModel: TrainerViewModel by navGraphViewModels(R.id.navigation_trainer)
-
+    var timer: CountDownTimer? = null
+    var timeLeft: Long = 0
+    var txtTimer: TextView? = null
+    var totalTime: Long = 0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,6 +44,9 @@ class TrainerFragment : Fragment() {
         val txtImage = root.findViewById<TextView>(R.id.txtImage)
         val txtExplanation = root.findViewById<TextView>(R.id.txtExplanation)
         val gvAnswers = root.findViewById<GridView>(R.id.gvAnswers)
+        if (args.mode != 2) {
+            viewModel.mode = args.mode
+        }
         gvAnswers.numColumns = 2
 //        rvAnswers.layoutManager = GridLayoutManager(context,2)
 //        (rvAnswers.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
@@ -63,9 +70,10 @@ class TrainerFragment : Fragment() {
 
         viewModel.currentQuestionImage.observe(viewLifecycleOwner, Observer {
 //            txtImage.text = it
-            if (it!=null) {
+            if (it != null) {
                 imgQuestionImage.visibility = ImageView.VISIBLE
                 imgQuestionImage.setImageDrawable(it)
+//                Log.i("Debug",it.toString())
 //                val resId = context?.resources?.getIdentifier(
 //                    "iqtest_" + it.substring(2),
 //                    "drawable",
@@ -85,7 +93,7 @@ class TrainerFragment : Fragment() {
             val adapter =
                 AnswersAdapterGV(args.mode, context, it, this@TrainerFragment::adapterOnClick)
             gvAnswers.adapter = adapter
-            setDynamicHeight(gvAnswers, 2)
+//            setDynamicHeight(gvAnswers, 2)
         })
 
         root.findViewById<Button>(R.id.btnNextQuestion).setOnClickListener {
@@ -94,6 +102,13 @@ class TrainerFragment : Fragment() {
         root.findViewById<Button>(R.id.btnPrevQuestion).setOnClickListener {
             viewModel.prevQuestion()
         }
+        txtTimer = root.findViewById(R.id.txtTimer)
+        if (args.mode == 0) {
+            timeLeft = Long.MAX_VALUE
+        } else if (args.mode == 1) {
+            timeLeft = 12000
+        }
+//        timerStart(timeLeft)
 
         val callback = requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             if (args.mode == 0 || args.mode == 1) {
@@ -116,46 +131,72 @@ class TrainerFragment : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        if(args.mode==1) {
-            inflater.inflate(R.menu.trainer_menu, menu)
-            val txtTimer = menu.findItem(R.id.txtTimer)
-            val timer = object : CountDownTimer(12000, 1000) {
-                override fun onTick(millisUntilFinished: Long) {
-                    txtTimer.title =
+//        if(args.mode==1) {
+//            inflater.inflate(R.menu.trainer_menu, menu)
+//            txtTimer = menu.findItem(R.id.txtTimer)
+//
+//        }else {
+        super.onCreateOptionsMenu(menu, inflater)
+//        }
+    }
+
+    fun timerStart(timeLengthMilli: Long) {
+        timer = object : CountDownTimer(timeLengthMilli, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                timeLeft = millisUntilFinished
+                if (args.mode == 0) {
+                    totalTime += 1000
+                    viewModel.time = totalTime
+                    txtTimer?.text =
+                        android.text.format.DateFormat.format("mm:ss", totalTime)
+                            .toString()
+                } else if (args.mode == 1) {
+                    viewModel.time = millisUntilFinished
+                    txtTimer?.text =
                         android.text.format.DateFormat.format("mm:ss", millisUntilFinished)
                             .toString()
                 }
 
-                override fun onFinish() {
-                    TimeoutDialogFragment("Time over!") {
-                        if (findNavController().currentDestination?.id == R.id.trainerFragment) {
-                            val action =
-                                TrainerFragmentDirections.actionTrainerFragmentToResultFragment()
-                                    .setShowReviseBtn(0)
-                            findNavController().navigate(action)
-                        }
-                    }.show(parentFragmentManager,"timeout")
-                }
             }
-            timer.start()
-        }else {
-            super.onCreateOptionsMenu(menu, inflater)
+
+            override fun onFinish() {
+                TimeoutDialogFragment("Time over!") {
+                    if (findNavController().currentDestination?.id == R.id.trainerFragment) {
+                        val action =
+                            TrainerFragmentDirections.actionTrainerFragmentToResultFragment()
+                                .setShowReviseBtn(0)
+                        findNavController().navigate(action)
+                    }
+                }.show(parentFragmentManager, "timeout")
+            }
         }
+        timer?.start()
+    }
+
+    override fun onPause() {
+        if (args.mode != 2)
+            timer?.cancel()
+        super.onPause()
+    }
+
+    override fun onResume() {
+        if (args.mode != 2) {
+            val dialog = PreparationTimeFragment() {
+                timerStart(timeLeft)
+            }
+            dialog.isCancelable = false
+            dialog.show(parentFragmentManager, "startCountdown")
+        }
+        super.onResume()
     }
 
     private fun setDynamicHeight(gridView: GridView, col: Int) {
         val gridViewAdapter = gridView.adapter
             ?: // pre-condition
             return
-        var totalHeight = 0
+        var totalHeight = gridView.measuredHeight
         val items = gridViewAdapter.count
-        var rows = 0
-        for (i in 0 until items) {
-            val listItem = gridViewAdapter.getView(i, null, gridView)
-            listItem.measure(0, 0)
-            totalHeight =
-                if (listItem.measuredHeight > totalHeight) listItem.measuredHeight else totalHeight
-        }
+        var rows = 1
         var x = 1f
         if (items > col) {
             x = items / col.toFloat()
@@ -164,11 +205,19 @@ class TrainerFragment : Fragment() {
             } else {
                 x.toInt()
             }
-            totalHeight *= rows
         }
-        val params = gridView.layoutParams
-        params.height = totalHeight
-        gridView.layoutParams = params
+        val rowHeight = totalHeight / rows
+        for (i in 0 until items) {
+            val listItem = gridViewAdapter.getView(i, null, gridView)
+            listItem.findViewById<ImageView>(R.id.imgAnswer).minimumHeight = rowHeight
+//            listItem.measure(0, 0)
+//            totalHeight =
+//                if (listItem.measuredHeight > totalHeight) listItem.measuredHeight else totalHeight
+        }
+//        val params = gridView.layoutParams
+//        params.
+//        params.height = totalHeight
+//        gridView.layoutParams = params
     }
 
     private fun nextQuestion() {

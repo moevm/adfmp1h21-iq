@@ -16,6 +16,7 @@ class DrawQuestion2Ans(val res: IntArray) : Drawable()  {
 
         paintText.setTextAlign(Paint.Align.CENTER)
     }
+
     override fun draw(canvas: Canvas) {
         val SIZE: Float = Math.min(bounds.width(), bounds.height()).toFloat() / 3f
         paintText.setTextSize(SIZE/3)
@@ -41,4 +42,8 @@ class DrawQuestion2Ans(val res: IntArray) : Drawable()  {
     override fun getOpacity(): Int =
         // Must be PixelFormat.UNKNOWN, TRANSLUCENT, TRANSPARENT, or OPAQUE
         PixelFormat.OPAQUE
+
+    override fun toString(): String {
+        return "DrawQuestion2Ans(res=${res.contentToString()}, paintStroke=$paintStroke, paintText=$paintText), ${bounds.width()}, ${bounds.height()})"
+    }
 }

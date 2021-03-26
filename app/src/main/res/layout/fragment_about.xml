@@ -21,18 +21,31 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display4"
         android:textSize="36sp" />
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:justificationMode="inter_word"
-        android:text="Intelligence quotient is an age-related measure of intelligence level. The word quotient means the result of dividing one quantity by another, and one definition of intelligence is mental ability or quickness of mind.  \nUsually, IQ tests consist of a graded series of tasks, each of which has been standardized with a large representative population of individuals in order to establish an average IQ of 100 for each test.  \nThe distribution of IQ takes the form of a fairly regular bell curve (see Figure below) in which the average score is 100 and similar proportions occur both above and below this norm."
-        android:textSize="18sp" />
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/about_graph" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:justificationMode="inter_word"
+                android:text="Intelligence quotient is an age-related measure of intelligence level. The word quotient means the result of dividing one quantity by another, and one definition of intelligence is mental ability or quickness of mind.  \nUsually, IQ tests consist of a graded series of tasks, each of which has been standardized with a large representative population of individuals in order to establish an average IQ of 100 for each test.  \nThe distribution of IQ takes the form of a fairly regular bell curve (see Figure below) in which the average score is 100 and similar proportions occur both above and below this norm."
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/about_graph" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

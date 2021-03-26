@@ -18,7 +18,8 @@ class DrawQuestion4 (val a:IntArray, val n:Int, val question:Int) : Drawable() {
     }
 
     override fun draw(canvas: Canvas) {
-        val SIZE: Float = Math.min(bounds.width(), bounds.height()).toFloat() / n
+        val SIZE: Float = bounds.width().toFloat() / n
+        val offsetLeft = if(bounds.width()<bounds.height()) 0 else (bounds.width()-bounds.height())/2
         paintText.setTextSize(SIZE/3)
 
         for (i in 0 until n) {
