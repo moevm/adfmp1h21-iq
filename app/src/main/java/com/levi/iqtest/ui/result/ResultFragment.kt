@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.addCallback
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -21,6 +22,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.navigation.navGraphViewModels
 import com.levi.iqtest.R
 import com.levi.iqtest.databinding.FragmentResultBinding
+import com.levi.iqtest.ui.home.HomeFragmentDirections
 import com.levi.iqtest.ui.result.ResultFragmentArgs
 import com.levi.iqtest.ui.result.ResultFragmentDirections
 import com.levi.iqtest.ui.trainer.TrainerViewModel
@@ -51,7 +53,7 @@ class ResultFragment : Fragment() {
         scoreboard?.add(
             (if (viewModel.mode == 0) "train" else "test") + "|"
                     + scoreboard.size.toString() + "|"
-                    + (if (resultModel?.name.value!=null) resultModel?.name.value else "<anonymous>") + "|"
+                    + (if (resultModel.name.value!=null) resultModel.name.value else "<anonymous>") + "|"
                     + viewModel.getScore()+ "|"
                     + viewModel.time
         )

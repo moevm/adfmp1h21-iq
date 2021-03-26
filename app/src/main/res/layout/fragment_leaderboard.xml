@@ -1,38 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".LeaderboardFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Result History"
-        android:textAlignment="center"
-        android:textSize="36sp" />
+        android:layout_height="90dp"
+        android:layout_weight="0.6">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabResult"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.tabs.TabItem
+        <ImageButton
+            android:id="@+id/btnBackToMenu"
             android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#00FFFFFF"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+        <TextView
+            android:id="@+id/text_home2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Train" />
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
+            android:text="Result History"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+            android:textSize="28sp" />
+    </LinearLayout>
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Test" />
-
-    </com.google.android.material.tabs.TabLayout>
-
-    <TableLayout
-        android:id="@+id/tableResult"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="fill_horizontal|center_vertical"
+        android:orientation="vertical">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Train" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Test" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <TableLayout
+            android:id="@+id/tableResult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
 
 </LinearLayout>

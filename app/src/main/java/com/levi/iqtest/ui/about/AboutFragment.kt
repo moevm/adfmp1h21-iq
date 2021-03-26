@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.AppCompatImageButton
+import androidx.navigation.ActionOnlyNavDirections
+import androidx.navigation.fragment.findNavController
 import com.levi.iqtest.R
 
 class AboutFragment : Fragment() {
@@ -20,7 +23,16 @@ class AboutFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_about, container, false)
+        val root = inflater.inflate(R.layout.fragment_about, container, false)
+        root.findViewById<AppCompatImageButton>(R.id.btnBackToMenu).setOnClickListener{
+            if (findNavController().currentDestination?.id == R.id.aboutFragment) {
+                val direction =
+                    ActionOnlyNavDirections(R.id.actionAboutFragmentToNavigationHome)
+                findNavController().navigate(direction)
+            }
+        }
+
+        return root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

@@ -6,8 +6,10 @@ import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.activity.addCallback
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.ActionOnlyNavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.navGraphViewModels
@@ -41,7 +43,7 @@ class TrainerFragment : Fragment() {
         val txtQuestionNumber = root.findViewById<TextView>(R.id.txtQuestionNumber)
         val txtQuestionText = root.findViewById<TextView>(R.id.txtQuestionText)
         val imgQuestionImage = root.findViewById<ImageView>(R.id.imgQuestionImage)
-        val txtImage = root.findViewById<TextView>(R.id.txtImage)
+//        val txtImage = root.findViewById<TextView>(R.id.txtImage)
         val txtExplanation = root.findViewById<TextView>(R.id.txtExplanation)
         val gvAnswers = root.findViewById<GridView>(R.id.gvAnswers)
         if (args.mode != 2) {
@@ -95,6 +97,24 @@ class TrainerFragment : Fragment() {
             gvAnswers.adapter = adapter
 //            setDynamicHeight(gvAnswers, 2)
         })
+
+        root.findViewById<AppCompatImageButton>(R.id.btnBackToMenu).setOnClickListener{
+            if (args.mode == 0 || args.mode == 1) {
+                ExitDialogFragment(
+                    "Are you sure you want to exit? Your progress will be loss.",
+                    {
+                        if (findNavController().currentDestination?.id == R.id.trainerFragment) {
+
+                            val direction =
+                                TrainerFragmentDirections.actionTrainerFragmentToNavigationHome()
+                            findNavController().navigate(direction)
+                        }
+                    },
+                    {}).show(parentFragmentManager, "exit")
+            } else {
+                findNavController().popBackStack()
+            }
+        }
 
         root.findViewById<Button>(R.id.btnNextQuestion).setOnClickListener {
             nextQuestion()
@@ -156,7 +176,6 @@ class TrainerFragment : Fragment() {
                         android.text.format.DateFormat.format("mm:ss", millisUntilFinished)
                             .toString()
                 }
-
             }
 
             override fun onFinish() {

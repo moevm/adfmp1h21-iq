@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable
 import android.util.Log
 import java.util.*
 
-class DrawQuestion1(var color1: Paint, var color2: Paint) : Drawable() {
+class DrawQuestion1() : Drawable() {
     private val paintStroke = Paint(Paint.ANTI_ALIAS_FLAG)
     private val paintText = Paint(Paint.ANTI_ALIAS_FLAG)
     private var coeff_rand:Array<IntArray> = Array(3) { IntArray(3) {0} }
@@ -41,19 +41,19 @@ class DrawQuestion1(var color1: Paint, var color2: Paint) : Drawable() {
                     canvas.drawCircle((i*SIZE + SIZE/2).toFloat()+offsetLeft, (j*SIZE + SIZE/2).toFloat(), radius, paintStroke)
                 }
                 else{
+                    val c1 = pcolor(coeff_rand[i-2][j])
+                    val c2 = pcolor(coeff_rand[i-1][j])
                     if(j==2){
+//                        color1 = pcolor(coeff_rand[i-2][j])
+//                        color2 = pcolor(coeff_rand[i-1][j])
                         canvas.drawText("?", (i * SIZE + SIZE/2).toFloat()+offsetLeft, (j * SIZE + 2*SIZE/3).toFloat(), paintText)
                     }
                     else{
-                        color1 = pcolor(coeff_rand[i-2][j])
-                        color2 = pcolor(coeff_rand[i-1][j])
-
-                        canvas.drawCircle((i*SIZE + SIZE/2).toFloat()+offsetLeft, (j*SIZE + SIZE/2).toFloat(), radius, color1)
+                        canvas.drawCircle((i*SIZE + SIZE/2).toFloat()+offsetLeft, (j*SIZE + SIZE/2).toFloat(), radius, c1)
                         canvas.drawCircle((i*SIZE + SIZE/2).toFloat()+offsetLeft, (j*SIZE + SIZE/2).toFloat(), radius, paintStroke)
-                        canvas.drawCircle((i*SIZE + SIZE/2).toFloat()+offsetLeft, (j*SIZE + SIZE/2).toFloat(), radius/2, color2)
+                        canvas.drawCircle((i*SIZE + SIZE/2).toFloat()+offsetLeft, (j*SIZE + SIZE/2).toFloat(), radius/2, c2)
                         canvas.drawCircle((i*SIZE + SIZE/2).toFloat()+offsetLeft, (j*SIZE + SIZE/2).toFloat(), radius/2, paintStroke)
                     }
-
                 }
             }
         }
@@ -83,6 +83,6 @@ class DrawQuestion1(var color1: Paint, var color2: Paint) : Drawable() {
         PixelFormat.OPAQUE
 
     override fun toString(): String {
-        return "DrawQuestion1(color1=$color1, color2=$color2, paintStroke=$paintStroke, paintText=$paintText, coeff_rand=${coeff_rand.contentToString()}, num_rand=$num_rand), ${bounds.width()}, ${bounds.height()})"
+        return "DrawQuestion1( paintStroke=$paintStroke, paintText=$paintText, coeff_rand=${coeff_rand.contentToString()}, num_rand=$num_rand), ${bounds.width()}, ${bounds.height()})"
     }
 }

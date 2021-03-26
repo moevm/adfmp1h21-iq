@@ -18,7 +18,8 @@ class LeaderboardViewModelTest {
     fun getScoreboard() {
         val application = ApplicationProvider.getApplicationContext() as Application
         val viewModel: LeaderboardViewModel = LeaderboardViewModel(application)
+        val mode = 1
+        viewModel.loadData(mode)
         Assert.assertNotNull(viewModel.scoreboard.value)
     }
-
 }

@@ -22,9 +22,14 @@ class TrainerViewModelTest {
     fun loadQuestionList() {
         val application = ApplicationProvider.getApplicationContext() as Application
         val viewModel: TrainerViewModel = TrainerViewModel(application)
+        viewModel.loadQuestionList()
         val questionList = viewModel.loadQuestionList()
+        val answerList = viewModel.answerList
         Assert.assertNotNull(questionList)
         Assert.assertTrue(questionList.isNotEmpty())
+
+        Assert.assertNotNull(answerList)
+        Assert.assertTrue(answerList.isNotEmpty())
     }
 
     @Test

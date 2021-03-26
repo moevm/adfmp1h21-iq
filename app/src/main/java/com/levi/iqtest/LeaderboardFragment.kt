@@ -8,12 +8,16 @@ import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.TableLayout
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.ActionOnlyNavDirections
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.levi.iqtest.ui.result.ResultFragmentDirections
 
 class LeaderboardFragment : Fragment() {
 
@@ -39,6 +43,15 @@ class LeaderboardFragment : Fragment() {
                 override fun onTabUnselected(tab: TabLayout.Tab) {}
                 override fun onTabReselected(tab: TabLayout.Tab) {}
             })
+
+        root.findViewById<AppCompatImageButton>(R.id.btnBackToMenu).setOnClickListener{
+            if (findNavController().currentDestination?.id == R.id.leaderboardFragment) {
+                val direction =
+                    ActionOnlyNavDirections(R.id.actionLeaderboardFragmentToNavigationHome)
+                findNavController().navigate(direction)
+            }
+        }
+
         viewModel.scoreboard.observe(viewLifecycleOwner, Observer {
             table.removeAllViews()
             it.forEach { entry ->
