@@ -33,6 +33,40 @@ class TrainerViewModelTest {
     }
 
     @Test
+    fun loadPerQuestion(){
+        val viewModel = TrainerViewModel(ApplicationProvider.getApplicationContext())
+        val questionList = viewModel.loadQuestionList()
+        for(i in 0 until QUESTION_PER_TEST){
+            Assert.assertNotNull(questionList[i].image)
+        }
+
+        val observer = Observer<Int> {}
+        try {
+            // Observe the LiveData forever
+            viewModel.currentQuestion.observeForever(observer)
+
+            assertNotNull(viewModel.currentQuestion.value)
+            assertNotNull(viewModel.currentAnswers.value)
+            assertNotNull(viewModel.currentQuestionText.value)
+            assertNotNull(viewModel.currentQuestionImage.value)
+            assertNotNull(viewModel.currentExplanation.value)
+        } finally {
+            // Whatever happens, don't forget to remove the observer!
+            viewModel.currentQuestion.removeObserver(observer)
+        }
+    }
+
+    @Test
+    fun loadAnswerPerQuestion(){
+        val viewModel = TrainerViewModel(ApplicationProvider.getApplicationContext())
+        val questionList = viewModel.loadQuestionList()
+        for(i in 0 until QUESTION_PER_TEST){
+            Assert.assertNotNull(questionList[i].answers)
+            Assert.assertTrue(questionList[i].answers.size == 4)
+        }
+    }
+
+    @Test
     fun getScore() {
         val application = ApplicationProvider.getApplicationContext() as Application
         val viewModel: TrainerViewModel = TrainerViewModel(application)
