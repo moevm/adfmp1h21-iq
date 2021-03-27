@@ -13,6 +13,9 @@ import androidx.lifecycle.Observer
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import com.levi.iqtest.model.AbstractQuestionFactory
+import com.levi.iqtest.model.Question
+import com.levi.iqtest.model.factorytest.*
 import org.junit.runner.RunWith
 import org.robolectric.util.PerfStatsCollector
 
@@ -33,36 +36,53 @@ class TrainerViewModelTest {
     }
 
     @Test
-    fun loadPerQuestion(){
-        val viewModel = TrainerViewModel(ApplicationProvider.getApplicationContext())
-        val questionList = viewModel.loadQuestionList()
+    fun generateQuestion(){
+//        val viewModel = TrainerViewModel(ApplicationProvider.getApplicationContext())
+        var listFactory : List<AbstractQuestionFactory> = listOf(
+            FactoryQA1(),
+            FactoryQA2(),
+            FactoryQA3(),
+            FactoryQA4(),
+            FactoryQA5()
+        )
         for(i in 0 until QUESTION_PER_TEST){
-            Assert.assertNotNull(questionList[i].image)
-        }
+            val rand = (0..listFactory.size-1).random()
+            val factory = listFactory.get(rand).generateQuestion()
 
-        val observer = Observer<Int> {}
-        try {
-            // Observe the LiveData forever
-            viewModel.currentQuestion.observeForever(observer)
-
-            assertNotNull(viewModel.currentQuestion.value)
-            assertNotNull(viewModel.currentAnswers.value)
-            assertNotNull(viewModel.currentQuestionText.value)
-            assertNotNull(viewModel.currentQuestionImage.value)
-            assertNotNull(viewModel.currentExplanation.value)
-        } finally {
-            // Whatever happens, don't forget to remove the observer!
-            viewModel.currentQuestion.removeObserver(observer)
+            Assert.assertNotNull(factory)
+            Assert.assertNotNull(factory.text)
+            Assert.assertNotNull(factory.image)
+            Assert.assertTrue(factory.answers.size == 4)
+            Assert.assertNotNull(factory.explanation)
         }
     }
 
     @Test
-    fun loadAnswerPerQuestion(){
-        val viewModel = TrainerViewModel(ApplicationProvider.getApplicationContext())
-        val questionList = viewModel.loadQuestionList()
-        for(i in 0 until QUESTION_PER_TEST){
-            Assert.assertNotNull(questionList[i].answers)
-            Assert.assertTrue(questionList[i].answers.size == 4)
+    fun loadAnswerPerTypeQuestion(){
+//        val viewModel = TrainerViewModel(ApplicationProvider.getApplicationContext())
+        var listFactory : List<AbstractQuestionFactory> = listOf(
+            FactoryQA1(),
+            FactoryQA2(),
+            FactoryQA3(),
+            FactoryQA4(),
+            FactoryQA5()
+        )
+        for(i in 0 until 5){
+            val factory = listFactory.get(i).generateQuestion()
+            Assert.assertNotNull(factory)
+            Assert.assertTrue(factory.answers.size == 4)
+            for(j in 0 until factory.answers.size){
+                val ans = factory.answers[j]
+                if(i<3){
+                    // drawable ansewer
+                    Assert.assertNotNull(ans.answerImage)
+                    Assert.assertTrue(ans.answerText == "")
+                }else{
+                    // text ansewer
+                    Assert.assertNotNull(ans.answerText)
+                    Assert.assertNull(ans.answerImage)
+                }
+            }
         }
     }
 
