@@ -84,10 +84,10 @@ class ResultFragment : Fragment() {
 
         if (args.showReviseBtn == 0) {
             btnRevise.visibility = Button.GONE
-            txtName.visibility = EditText.VISIBLE
+//            txtName.visibility = EditText.VISIBLE
         } else {
             btnRevise.visibility = Button.VISIBLE
-            txtName.visibility = EditText.GONE
+//            txtName.visibility = EditText.GONE
             btnRevise.setOnClickListener {
                 if (findNavController().currentDestination?.id == R.id.resultFragment) {
                     viewModel.currentQuestion.value = 0

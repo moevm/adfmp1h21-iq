@@ -6,5 +6,5 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ResultViewModel : ViewModel(){
-    val name = MutableLiveData<String>()
+    val name = MutableLiveData<String>("Anonymous")
 }
