@@ -103,7 +103,7 @@ class TrainerViewModelTest {
 
             // Observe the LiveData forever
             viewModel.currentQuestion.observeForever(observer)
-
+            viewModel.nextQuestion()
             val prev = viewModel.currentQuestion.value
             // When adding a new task
             for (i in 1 until QUESTION_PER_TEST){
@@ -134,7 +134,7 @@ class TrainerViewModelTest {
 
             // Observe the LiveData forever
             viewModel.currentQuestion.observeForever(observer)
-
+            viewModel.nextQuestion()
             val prev = viewModel.currentQuestion.value
             // When adding a new task
             var result= viewModel.prevQuestion()
