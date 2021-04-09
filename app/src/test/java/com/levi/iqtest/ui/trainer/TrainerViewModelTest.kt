@@ -17,7 +17,7 @@ import com.levi.iqtest.model.AbstractQuestionFactory
 import com.levi.iqtest.model.Question
 import com.levi.iqtest.model.factorytest.*
 import org.junit.runner.RunWith
-import org.robolectric.util.PerfStatsCollector
+//import org.robolectric.util.PerfStatsCollector
 
 @RunWith(AndroidJUnit4::class)
 class TrainerViewModelTest {

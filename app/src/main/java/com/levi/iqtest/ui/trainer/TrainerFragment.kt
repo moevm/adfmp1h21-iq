@@ -40,6 +40,16 @@ class TrainerFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_trainer, container, false)
         setHasOptionsMenu(true)
+
+        if (args.mode != 2) {
+            val dialog = PreparationTimeFragment() {
+                nextQuestion()
+                timerStart(timeLeft)
+            }
+            dialog.isCancelable = false
+            dialog.show(parentFragmentManager, "startCountdown")
+        }
+
         val txtQuestionNumber = root.findViewById<TextView>(R.id.txtQuestionNumber)
         val txtQuestionText = root.findViewById<TextView>(R.id.txtQuestionText)
         val imgQuestionImage = root.findViewById<ImageView>(R.id.imgQuestionImage)
@@ -199,13 +209,7 @@ class TrainerFragment : Fragment() {
     }
 
     override fun onResume() {
-        if (args.mode != 2) {
-            val dialog = PreparationTimeFragment() {
-                timerStart(timeLeft)
-            }
-            dialog.isCancelable = false
-            dialog.show(parentFragmentManager, "startCountdown")
-        }
+
         super.onResume()
     }
 

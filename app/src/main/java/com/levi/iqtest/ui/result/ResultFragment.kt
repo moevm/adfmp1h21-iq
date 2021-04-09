@@ -78,7 +78,7 @@ class ResultFragment : Fragment() {
 
         val root = binding.root
 //        val root = inflater.inflate(R.layout.fragment_result, container, false)
-        root.findViewById<TextView>(R.id.txtResult).text = viewModel.getScore().toString()
+        root.findViewById<TextView>(R.id.txtResult).text = viewModel.getScore().toString() +"/"+viewModel.getMaxScore().toString()
         val btnRevise = root.findViewById<Button>(R.id.btnTestDetail)
         val txtName = root.findViewById<EditText>(R.id.txtName)
 

@@ -74,20 +74,26 @@ class TrainerViewModel(application: Application) : AndroidViewModel(application)
         questionList = questionsData.shuffled().take(QUESTION_PER_TEST)
         answerList = MutableList(QUESTION_PER_TEST) { null }
 
-        currentQuestion.value = 0
+        currentQuestion.value = -1
 //      assign question to appropriate variables
         loadQuestion()
     }
 
     fun getScore(): Int{
-        return 100 + answerList.sumBy { ans -> if(ans==null) 0 else if (ans.isCorrect) +10 else -10 }
+        return  answerList.sumBy { ans -> if(ans==null) 0 else if (ans.isCorrect) +20 else 0 }
+    }
+
+    fun getMaxScore(): Int{
+        return answerList.count() * 20
     }
     fun loadQuestion() {
         currentQuestion.value?.let {
-            currentAnswers.value = questionList[it].answers
-            currentQuestionText.value = questionList[it ].text
-            currentQuestionImage.value = questionList[it ].image
-            currentExplanation.value = questionList[it].explanation
+            if((it>=0) and (it<questionList.size)) {
+                currentAnswers.value = questionList[it].answers
+                currentQuestionText.value = questionList[it].text
+                currentQuestionImage.value = questionList[it].image
+                currentExplanation.value = questionList[it].explanation
+            }
 //            currentAnswers.value?.let {
 //                Log.i("Debug", it.size.toString())
 //                Log.i("Debug", it[0].answerText)
