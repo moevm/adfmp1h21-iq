@@ -33,7 +33,7 @@ class FactoryQA1() : AbstractQuestionFactory() {
 
             answer = answer.plus(Answer("", DrawQuestion1Ans(pcolor(c1), pcolor(c2)), isCorrect = false))
         }
-
+        answer = answer.shuffled()
         question = Question("",  dr, answer,"")
         return question
     }

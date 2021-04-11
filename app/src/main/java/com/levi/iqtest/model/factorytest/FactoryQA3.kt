@@ -51,6 +51,7 @@ class FactoryQA3() : AbstractQuestionFactory() {
         answer = answer.plus(Answer("", DrawQuestion3Ans(wrong_res1), isCorrect = false))
         answer = answer.plus(Answer("", DrawQuestion3Ans(wrong_res2), isCorrect = false))
         answer = answer.plus(Answer("", DrawQuestion3Ans(wrong_res3), isCorrect = false))
+        answer = answer.shuffled()
 
         question = Question("",  DrawQuestion3(a, n), answer,"")
 

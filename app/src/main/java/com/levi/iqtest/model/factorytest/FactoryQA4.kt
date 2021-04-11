@@ -20,6 +20,7 @@ class FactoryQA4(): AbstractQuestionFactory() {
         answer = answer.plus(Answer((a[pos_question] + (0..10).random()).toString(),null, isCorrect = false))
         answer = answer.plus(Answer((a[n-1] + x + 1).toString(),null, isCorrect = false))
         answer = answer.plus(Answer((a[pos_question] - 2).toString(),null, isCorrect = false))
+        answer = answer.shuffled()
 
         question = Question("", DrawQuestion4(a, n, pos_question),answer,"")
         return question

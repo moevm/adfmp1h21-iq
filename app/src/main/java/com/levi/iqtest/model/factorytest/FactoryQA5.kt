@@ -20,6 +20,7 @@ class FactoryQA5() : AbstractQuestionFactory(){
         answer = answer.plus(Answer((n+1).toString(), null, isCorrect = false))
         answer = answer.plus(Answer((n-1).toString(), null, isCorrect = false))
         answer = answer.plus(Answer((n+2).toString(), null, isCorrect = false))
+        answer = answer.shuffled()
 
         question = Question("",  DrawQuestion5(n), answer,"")
         return question
